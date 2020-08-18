@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Actor>
+	<Node name="j_kosi"><Alias name="root ground" /><Alias name="Root_bind" /><Alias name="Hips" /><Alias name="Pelvis" /><Alias name="下半身" /><Alias name="kosi"/></Node>
+	<Node name="j_sebo_b" parent="j_kosi"><Alias name="spine upper" /><Alias name="Abs_bind" /><Alias name="Spine" /><Alias name="上半身" /><Alias name="senaka"/></Node>
+	<Node name="j_sebo_m" parent="j_sebo_b"><Alias name="Chest_bind" /><Alias name="Spine1" /></Node>
+	<Node name="j_sebo_t" parent="j_sebo_m"><Alias name="NeckBase_bind" /><Alias name="Spine2" /></Node>
+	<Node name="j_kubi" parent="j_sebo_t"><Alias name="head neck lower" /><Alias name="Neck_bind" /><Alias name="首" /><Alias name="mune"/></Node>
+	<Node name="j_kao" parent="j_kubi"><Alias name="head neck upper" /><Alias name="Head" /><Alias name="頭" /><Alias name="kubi"/></Node>
+	<Node name="j_sako_l" parent="j_sebo_t"><Alias name="arm left shoulder 1" /><Alias name="Shoulder_L" /><Alias name="LeftShoulder" /><Alias name="L Clavicle" /><Alias name="左肩" /><Alias name="munaita_L"/></Node>
+	<Node name="j_sako_r" parent="j_sebo_t"><Alias name="arm right shoulder 1" /><Alias name="Shoulder_R" /><Alias name="RightShoulder" /><Alias name="R Clavicle" /><Alias name="右肩" /><Alias name="munaita_R"/></Node>
+	<Node name="j_kata_l" parent="j_sako_l"><Alias name="arm left shoulder 2" /><Alias name="UpperArm_L" /><Alias name="LeftArm" /><Alias name="L UpperArm" /><Alias name="左腕" /><Alias name="kata_L"/></Node>
+	<Node name="j_kata_r" parent="j_sako_r"><Alias name="arm right shoulder 2" /><Alias name="UpperArm_R" /><Alias name="RightArm" /><Alias name="R UpperArm" /><Alias name="右腕" /><Alias name="kata_R"/></Node>
+	<Node name="j_ude_l" parent="j_kata_l"><Alias name="arm left elbow" /><Alias name="ForeArm_L" /><Alias name="LeftForeArm" /><Alias name="L Forearm" /><Alias name="左ひじ" /><Alias name="hizi_L"/></Node>
+	<Node name="j_ude_r" parent="j_kata_r"><Alias name="arm right elbow" /><Alias name="ForeArm_R" /><Alias name="RightForeArm" /><Alias name="R Forearm" /><Alias name="右ひじ" /><Alias name="hizi_R"/></Node>
+	<Node name="j_te_l" parent="j_ude_l"><Alias name="arm left wrist" /><Alias name="Hand_L" /><Alias name="LeftHand" /><Alias name="L Hand" /><Alias name="左手首" /><Alias name="tekubi_L"/></Node>
+	<Node name="j_te_r" parent="j_ude_r"><Alias name="arm right wrist" /><Alias name="Hand_R" /><Alias name="RightHand" /><Alias name="R Hand" /><Alias name="右手首" /><Alias name="tekubi_R"/></Node>
+	<Node name="j_momo_l" parent="j_kosi"><Alias name="leg left thigh" /><Alias name="Hip_L" /><Alias name="LeftUpLeg" /><Alias name="L Thigh" /><Alias name="左足" /><Alias name="asi_kosi_L"/></Node>
+	<Node name="j_momo_r" parent="j_kosi"><Alias name="leg right thigh" /><Alias name="Hip_R" /><Alias name="RightUpLeg" /><Alias name="R Thigh" /><Alias name="右足" /><Alias name="asi_kosi_R"/></Node>
+	<Node name="j_hiza_l" parent="j_momo_l"><Alias name="leg left knee" /><Alias name="Knee_L" /><Alias name="LeftLeg" /><Alias name="L Calf" /><Alias name="左ひざ" /><Alias name="hiza_L"/></Node>
+	<Node name="j_hiza_r" parent="j_momo_r"><Alias name="leg right knee" /><Alias name="Knee_R" /><Alias name="RightLeg" /><Alias name="R Calf" /><Alias name="右ひざ" /><Alias name="hiza_R"/></Node>
+	<Node name="j_kaka_l" parent="j_hiza_l"><Alias name="leg left ankle" /><Alias name="Foot_L" /><Alias name="LeftFoot" /><Alias name="L Foot" /><Alias name="左足首" /><Alias name="kakato_L"/></Node>
+	<Node name="j_kaka_r" parent="j_hiza_r"><Alias name="leg right ankle" /><Alias name="Foot_R" /><Alias name="RightFoot" /><Alias name="R Foot" /><Alias name="右足首" /><Alias name="kakato_R"/></Node>
+	<Node name="j_tuma_l" parent="j_kaka_l"><Alias name="leg left toes" /><Alias name="Toe_L" /><Alias name="LeftToeBase" /><Alias name="L Toe" /><Alias name="asi_tukene_L"/></Node>
+	<Node name="j_tuma_r" parent="j_kaka_r"><Alias name="leg right toes" /><Alias name="Toe_R" /><Alias name="RightToeBase" /><Alias name="R Toe" /><Alias name="asi_tukene_R"/></Node>
+
+	<Node name="j_thumb_r_a" parent="j_te_r"><Alias name="RightHandThumb1" /><Alias name="oyayubi_R"/></Node>
+	<Node name="j_thumb_r_b" parent="j_thumb_r_a"><Alias name="RightHandThumb2" /><Alias name="oyayubi_2R"/></Node>
+	<Node name="j_thumb_r_c" parent="j_thumb_r_b"><Alias name="RightHandThumb3" /><Alias name="oyayubi_3R"/></Node>
+	<Node name="j_thumb_r_d" parent="j_thumb_r_c"><Alias name="RightHandThumb4" /></Node>
+	<Node name="j_fore_finger_r_a" parent="j_te_r"><Alias name="RightHandIndex1" /><Alias name="hitosasi_R"/></Node>
+	<Node name="j_fore_finger_r_b" parent="j_fore_finger_r_a"><Alias name="RightHandIndex2" /><Alias name="hitosasi_2R"/></Node>
+	<Node name="j_fore_finger_r_c" parent="j_fore_finger_r_b"><Alias name="RightHandIndex3" /><Alias name="hitosasi_3R"/></Node>
+	<Node name="j_fore_finger_r_d" parent="j_fore_finger_r_c"><Alias name="RightHandIndex4" /></Node>
+	<Node name="j_middle_finger_r_a" parent="j_te_r"><Alias name="RightHandMiddle1" /><Alias name="nakayubi_R"/></Node>
+	<Node name="j_middle_finger_r_b" parent="j_middle_finger_r_a"><Alias name="RightHandMiddle2" /><Alias name="nakayubi_2R"/></Node>
+	<Node name="j_middle_finger_r_c" parent="j_middle_finger_r_b"><Alias name="RightHandMiddle3" /><Alias name="nakayubi_3R"/></Node>
+	<Node name="j_middle_finger_r_d" parent="j_middle_finger_r_c"><Alias name="RightHandMiddle4" /></Node>
+	<Node name="j_ring_finger_r_a" parent="j_te_r"><Alias name="RightHandRing1" /><Alias name="kusuri_R"/></Node>
+	<Node name="j_ring_finger_r_b" parent="j_ring_finger_r_a"><Alias name="RightHandRing2" /><Alias name="kusuri_2R"/></Node>
+	<Node name="j_ring_finger_r_c" parent="j_ring_finger_r_b"><Alias name="RightHandRing3" /><Alias name="kusuri_3R"/></Node>
+	<Node name="j_ring_finger_r_d" parent="j_ring_finger_r_c"><Alias name="RightHandRing4" /></Node>
+	<Node name="j_little_finger_r_a" parent="j_te_r"><Alias name="RightHandPinky1" /><Alias name="koyubi_R"/></Node>
+	<Node name="j_little_finger_r_b" parent="j_little_finger_r_a"><Alias name="RightHandPinky2" /><Alias name="koyubi_2R"/></Node>
+	<Node name="j_little_finger_r_c" parent="j_little_finger_r_b"><Alias name="RightHandPinky3" /><Alias name="koyubi_3R"/></Node>
+	<Node name="j_little_finger_r_d" parent="j_little_finger_r_c"><Alias name="RightHandPinky4" /></Node>
+
+	<Node name="j_thumb_l_a" parent="j_te_l"><Alias name="LeftHandThumb1" /><Alias name="oyayubi_L"/></Node>
+	<Node name="j_thumb_l_b" parent="j_thumb_l_a"><Alias name="LeftHandThumb2" /><Alias name="oyayubi_2L"/></Node>
+	<Node name="j_thumb_l_c" parent="j_thumb_l_b"><Alias name="LeftHandThumb3" /><Alias name="oyayubi_3L"/></Node>
+	<Node name="j_thumb_l_d" parent="j_thumb_l_c"><Alias name="LeftHandThumb4" /></Node>
+	<Node name="j_fore_finger_l_a" parent="j_te_l"><Alias name="LeftHandIndex1" /><Alias name="hitosasi_L"/></Node>
+	<Node name="j_fore_finger_l_b" parent="j_fore_finger_l_a"><Alias name="LeftHandIndex2" /><Alias name="hitosasi_2L"/></Node>
+	<Node name="j_fore_finger_l_c" parent="j_fore_finger_l_b"><Alias name="LeftHandIndex3" /><Alias name="hitosasi_3L"/></Node>
+	<Node name="j_fore_finger_l_d" parent="j_fore_finger_l_c"><Alias name="LeftHandIndex4" /></Node>
+	<Node name="j_middle_finger_l_a" parent="j_te_l"><Alias name="LeftHandMiddle1" /><Alias name="nakayubi_L"/></Node>
+	<Node name="j_middle_finger_l_b" parent="j_middle_finger_l_a"><Alias name="LeftHandMiddle2" /><Alias name="nakayubi_2L"/></Node>
+	<Node name="j_middle_finger_l_c" parent="j_middle_finger_l_b"><Alias name="LeftHandMiddle3" /><Alias name="nakayubi_3L"/></Node>
+	<Node name="j_middle_finger_l_d" parent="j_middle_finger_l_c"><Alias name="LeftHandMiddle4" /></Node>
+	<Node name="j_ring_finger_l_a" parent="j_te_l"><Alias name="LeftHandRing1" /><Alias name="kusuri_L"/></Node>
+	<Node name="j_ring_finger_l_b" parent="j_ring_finger_l_a"><Alias name="LeftHandRing2" /><Alias name="kusuri_2L"/></Node>
+	<Node name="j_ring_finger_l_c" parent="j_ring_finger_l_b"><Alias name="LeftHandRing3" /><Alias name="kusuri_3L"/></Node>
+	<Node name="j_ring_finger_l_d" parent="j_ring_finger_l_c"><Alias name="LeftHandRing4" /></Node>
+	<Node name="j_little_finger_l_a" parent="j_te_l"><Alias name="LeftHandPinky1" /><Alias name="koyubi_L"/></Node>
+	<Node name="j_little_finger_l_b" parent="j_little_finger_l_a"><Alias name="LeftHandPinky2" /><Alias name="koyubi_2L"/></Node>
+	<Node name="j_little_finger_l_c" parent="j_little_finger_l_b"><Alias name="LeftHandPinky3" /><Alias name="koyubi_3L"/></Node>
+	<Node name="j_little_finger_l_d" parent="j_little_finger_l_c"><Alias name="LeftHandPinky4" /></Node>
+
+</Actor>

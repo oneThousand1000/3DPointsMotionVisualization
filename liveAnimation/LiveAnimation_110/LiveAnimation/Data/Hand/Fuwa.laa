@@ -1,0 +1,382 @@
+osn 0100txt 0032
+Object Root root
+{
+	Object Node c_finder_r
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value 90 0 0;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0 0 0;
+			}
+		}
+	}
+	Object Node c_thumb_r
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 0.9999999;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value 76.75171 32.10035 -47.93964;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.0012835 0 -0.0840565;
+			}
+		}
+	}
+	Object Node j_thumb_r_a
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value 0 0 0;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0 0 0;
+			}
+		}
+	}
+	Object Node j_thumb_r_b
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value -0.009299999 0.0218 13.59971;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.7664 0 0;
+			}
+		}
+	}
+	Object Node j_thumb_r_c
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 0.9999999 0.9999999 0.9999999;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value -0.2966 1.3159 30.4406;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.3515 0 0;
+			}
+		}
+	}
+	Object Node c_fore_finger_r
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value -0.0036 -2.73076 -1.5288;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.9366065 -0.2339625 -0.3605955;
+			}
+		}
+	}
+	Object Node j_fore_finger_r_a
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value 0 0 -13.56736;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0 0 0;
+			}
+		}
+	}
+	Object Node j_fore_finger_r_b
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value -0.0002 -0.1122 -14.62458;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.3836 0 0;
+			}
+		}
+	}
+	Object Node j_fore_finger_r_c
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 0.9999999 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value -1.4118 1.1061 -28.51427;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.2873 0 0;
+			}
+		}
+	}
+	Object Node c_middle_finger_r
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value 0 -2.186189 -0.0025;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.9366065 -0.2339625 -0.094809;
+			}
+		}
+	}
+	Object Node j_middle_finger_r_a
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value 0 0 -1.629666;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0 0 0;
+			}
+		}
+	}
+	Object Node j_middle_finger_r_b
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value 0 0 -24.40494;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.4227 0 0;
+			}
+		}
+	}
+	Object Node j_middle_finger_r_c
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value 1.0037 0.0005 -31.16816;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.2988 0 0;
+			}
+		}
+	}
+	Object Node c_ring_finger_r
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value 0.3888738 -2.440578 0.6702372;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.879342 -0.260542 0.158236;
+			}
+		}
+	}
+	Object Node j_ring_finger_r_a
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value 0 0 -4.41311;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0 0 0;
+			}
+		}
+	}
+	Object Node j_ring_finger_r_b
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 0.9999999 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value -0.0003 0.1553 -13.61155;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.4052 0 0;
+			}
+		}
+	}
+	Object Node j_ring_finger_r_c
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value 0.0355 0.7182999 -25.29654;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.2934 0 0;
+			}
+		}
+	}
+	Object Node c_little_finger_r
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 0.9999999 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value -6.006717 -1.686824 0.8880489;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.7674395 -0.297806 0.3965675;
+			}
+		}
+	}
+	Object Node j_little_finger_r_a
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value 0 0 -12.60435;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0 0 0;
+			}
+		}
+	}
+	Object Node j_little_finger_r_b
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value -0.0016 0.3597 -23.33956;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.3424 0 0;
+			}
+		}
+	}
+	Object Node j_little_finger_r_c
+	{
+		Object Static Transform
+		{
+			Object Static Scaling
+			{
+				Vector3 Value 1 1 1;
+			}
+			Object Static Rotation
+			{
+				Vector3 Value 7.425799 1.4029 -33.19639;
+			}
+			Object Static Translation
+			{
+				Vector3 Value 0.2516 0 0;
+			}
+		}
+	}
+}

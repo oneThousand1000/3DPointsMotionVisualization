@@ -1,0 +1,45 @@
+DateTime=================
+2019-07-10 22:30:42
+Message==================
+未将对象引用设置到对象的实例。
+
+InnerException===========
+
+StackTrace===============
+   在 LaGame.LaApplication.LoadAvatar(String filename)
+
+Source===================
+LaInterface
+
+HelpLink=================
+
+
+DateTime=================
+2019-07-10 22:30:47
+Message==================
+未将对象引用设置到对象的实例。
+
+InnerException===========
+
+StackTrace===============
+   在 LaGame.LaApplication.get_ModelViewerControl()
+   在 LaInterface.MainWindow.MainForm_FormClosing(Object sender, FormClosingEventArgs e)
+   在 System.Windows.Forms.Form.OnFormClosing(FormClosingEventArgs e)
+   在 System.Windows.Forms.Form.RaiseFormClosingOnAppExit()
+   在 System.Windows.Forms.Application.ExitInternal()
+   在 System.Windows.Forms.Application.ThreadContext.OnThreadException(Exception t)
+   在 System.Windows.Forms.Timer.TimerNativeWindow.OnThreadException(Exception e)
+   在 System.Windows.Forms.NativeWindow.Callback(IntPtr hWnd, Int32 msg, IntPtr wparam, IntPtr lparam)
+   在 System.Windows.Forms.UnsafeNativeMethods.DispatchMessageW(MSG& msg)
+   在 System.Windows.Forms.Application.ComponentManager.System.Windows.Forms.UnsafeNativeMethods.IMsoComponentManager.FPushMessageLoop(IntPtr dwComponentID, Int32 reason, Int32 pvLoopData)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoopInner(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.ThreadContext.RunMessageLoop(Int32 reason, ApplicationContext context)
+   在 System.Windows.Forms.Application.Run(Form mainForm)
+   在 LaGame.Program.Main()
+
+Source===================
+LaInterface
+
+HelpLink=================
+
+

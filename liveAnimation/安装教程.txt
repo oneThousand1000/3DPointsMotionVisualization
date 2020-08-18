@@ -1,0 +1,2 @@
+1先安装xnafx40_redist，直接双击安装就可
+2打开LiveAnimation_110文件夹，找到LiveAnimation应用程序打开就好，无需安装，可以直接将LiveAnimation应用程序发送到桌面快捷方式
