@@ -217,3 +217,72 @@ System
 HelpLink=================
 
 
+DateTime=================
+2020/08/18 13:47:47
+Message==================
+基础连接已经关闭: 接收时发生错误。
+
+InnerException===========
+InnerException Level[0]
+无法从传输连接中读取数据: 远程主机强迫关闭了一个现有的连接。。
+InnerException Level[1]
+远程主机强迫关闭了一个现有的连接。
+
+StackTrace===============
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadString(Uri address)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 LaGame.Program.threadAutoUpdate()
+
+Source===================
+System
+
+HelpLink=================
+
+
+DateTime=================
+2020/08/18 15:58:40
+Message==================
+基础连接已经关闭: 接收时发生错误。
+
+InnerException===========
+InnerException Level[0]
+无法从传输连接中读取数据: 远程主机强迫关闭了一个现有的连接。。
+InnerException Level[1]
+远程主机强迫关闭了一个现有的连接。
+
+StackTrace===============
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadString(Uri address)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 LaGame.Program.threadAutoUpdate()
+
+Source===================
+System
+
+HelpLink=================
+
+
+DateTime=================
+2020/08/18 16:34:18
+Message==================
+基础连接已经关闭: 接收时发生错误。
+
+InnerException===========
+InnerException Level[0]
+无法从传输连接中读取数据: 远程主机强迫关闭了一个现有的连接。。
+InnerException Level[1]
+远程主机强迫关闭了一个现有的连接。
+
+StackTrace===============
+   在 System.Net.WebClient.DownloadDataInternal(Uri address, WebRequest& request)
+   在 System.Net.WebClient.DownloadString(Uri address)
+   在 System.Net.WebClient.DownloadString(String address)
+   在 LaGame.Program.threadAutoUpdate()
+
+Source===================
+System
+
+HelpLink=================
+
+
