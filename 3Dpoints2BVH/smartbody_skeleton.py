@@ -1,5 +1,5 @@
-import math3d_SmartBody
-import bvh_helper_SmartBody
+from . import math3d_SmartBody
+from . import bvh_helper_SmartBody
 
 import numpy as np
 
@@ -30,6 +30,8 @@ class SmartBodySkeleton(object):
             'LeftFoot_End': -1,
             'LeftWristEndSite': 17,
             'RightWristEndSite': 18,
+            'LeftToe': 19,
+            'RightToe': 20,
             'HeadEndSite': -1
         }
 
@@ -40,11 +42,13 @@ class SmartBodySkeleton(object):
             'Hips': ['RightUpLeg', 'LeftUpLeg', 'Spine'],
             'RightUpLeg': ['RightLeg'],
             'RightLeg': ['RightFoot'],
-            'RightFoot': ['RightFoot_End'],
+            'RightFoot': ['RightToe'],
+            'RightToe':['RightFoot_End'],
             'RightFoot_End': [],
             'LeftUpLeg': ['LeftLeg'],
             'LeftLeg': ['LeftFoot'],
-            'LeftFoot': ['LeftFoot_End'],
+            'LeftFoot':  ['LeftToe'],
+            'LeftToe':['LeftFoot_End'],
             'LeftFoot_End': [],
             'Spine': ['Spine3'],
             'Spine3': ['Neck', 'LeftArm', 'RightArm'],
@@ -78,12 +82,14 @@ class SmartBodySkeleton(object):
         # SmartBody坐标系(Y向上，Z向前，X向右)下的T-pose
         self.initial_directions = {
             'Hips': [0, 0, 0],
-            'RightUpLeg': [-1, 0, 0],
+            'RightUpLeg': [-1,-1, 0],
             'RightLeg': [0, -1, 0],
             'RightFoot': [0, -1, 0],
             'RightFoot_End': [0, 0, 1],
-            'LeftUpLeg': [1, 0, 0],
+            'LeftUpLeg': [1, -1, 0],
             'LeftLeg': [0, -1, 0],
+            'LeftToe': [0, -1, 0],
+            'RightToe': [0, -1, 0],
             'LeftFoot': [0, -1, 0],
             'LeftFoot_End': [0, 0, 1],
             'Spine': [0, 1, 0],
@@ -110,7 +116,10 @@ class SmartBodySkeleton(object):
             p_idx = self.keypoint2index[parent]
             for child in self.children[parent]:
                 if 'End' in child and 'Wrist' not in child:
-                    bone_lens[child] = 0.4 * bone_lens[parent]
+                    if 'Foot' in child:
+                        bone_lens[child] = bone_lens[parent]
+                    else:
+                        bone_lens[child] = 0.4 * bone_lens[parent]
                     continue
                 stack.append(child)
 
