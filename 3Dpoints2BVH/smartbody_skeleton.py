@@ -207,9 +207,39 @@ class SmartBodySkeleton(object):
                 y_dir = pose[joint_idx] - pose[child_idx]
                 z_dir = None
                 order = 'yzx'
-            elif joint in ['LeftUpLeg', 'LeftLeg']:
+            elif joint == 'RightFoot':
                 child_idx = self.keypoint2index[node.children[0].name]
-                x_dir = pose[index['LeftUpLeg']] - pose[index['Hips']]
+                x_dir = pose[index['RightLeg']] - pose[joint_idx]
+                y_dir = pose[joint_idx] - pose[child_idx]
+                z_dir = None
+                order = 'yzx'
+            elif joint == 'RightToe':
+                child_idx = self.keypoint2index[node.children[0].name]
+                x_dir = pose[index['RightFoot']] - pose[joint_idx]
+                y_dir = pose[joint_idx] - pose[child_idx]
+                z_dir = None
+                order = 'yzx'
+            elif joint =='LeftUpLeg':
+                child_idx = self.keypoint2index[node.children[0].name]
+                x_dir = pose[joint_idx] - pose[index['Hips']]
+                y_dir = pose[joint_idx] - pose[child_idx]
+                z_dir = None
+                order = 'yzx'
+            elif joint =='LeftLeg':
+                child_idx = self.keypoint2index[node.children[0].name]
+                x_dir = pose[joint_idx] - pose[index['LeftUpLeg']]
+                y_dir = pose[joint_idx] - pose[child_idx]
+                z_dir = None
+                order = 'yzx'
+            elif joint == 'LeftFoot':
+                child_idx = self.keypoint2index[node.children[0].name]
+                x_dir = pose[joint_idx] - pose[index['LeftLeg']]
+                y_dir = pose[joint_idx] - pose[child_idx]
+                z_dir = None
+                order = 'yzx'
+            elif joint == 'LeftToe':
+                child_idx = self.keypoint2index[node.children[0].name]
+                x_dir = pose[joint_idx] - pose[index['LeftFoot']]
                 y_dir = pose[joint_idx] - pose[child_idx]
                 z_dir = None
                 order = 'yzx'
