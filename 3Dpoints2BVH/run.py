@@ -112,19 +112,24 @@ def getStandardFrames(frames):
         new_frames[i][20][0] = (frames[i][20][0] + frames[i][19][0]) / 2 * -1
         new_frames[i][20][1] = (frames[i][20][1] + frames[i][19][1]) / 2
         new_frames[i][20][2] = (frames[i][20][2] + frames[i][19][2]) / 2
+        foot_z=min(new_frames[i][19][2],new_frames[i][20][2])
+        for j in range(21):
+            new_frames[i][j][2]-=foot_z
+
     return new_frames
 
 
 if __name__ == '__main__':
-    dance_type='T'
-    music_name='Assassins Tango'
-    input_json_path='F:/srtp/$RTP/git_files/SRTP/result/%s/%s.json'%(dance_type,music_name)
-    output_bvh_path='%s.bvh'%music_name
+    # dance_type='T'
+    # music_name='Assassins Tango'
+    # input_json_path='F:/srtp/$RTP/git_files/SRTP/result/%s/%s.json'%(dance_type,music_name)
+    # output_bvh_path='%s.bvh'%music_name
 
-    with open(input_json_path,'r') as fin:
+
+    with open('./DANCE_R_10.json','r') as fin:
         data = json.load(fin)
 
     frames=np.array(data['skeletons'])
     frames=getStandardFrames(frames)
     smartbody_skeleton = smartbody_skeleton.SmartBodySkeleton()
-    smartbody_skeleton.poses2bvh(frames, output_file=output_bvh_path)
+    smartbody_skeleton.poses2bvh(frames, output_file='./test.bvh')

@@ -1,5 +1,5 @@
-from . import math3d_SmartBody
-from . import bvh_helper_SmartBody
+import math3d_SmartBody
+import bvh_helper_SmartBody
 
 import numpy as np
 
@@ -128,7 +128,8 @@ class SmartBodySkeleton(object):
                     poses_3d[:, p_idx] - poses_3d[:, c_idx],
                     axis=1
                 )
-
+                if 'Hand' in child:
+                    bone_lens[child] *= 3
         bone_len = {}
         for joint in self.keypoint2index:
             if 'Left' in joint or 'Right' in joint:
@@ -196,7 +197,7 @@ class SmartBodySkeleton(object):
                 order = 'yzx'
             elif joint in ['RightUpLeg', 'RightLeg']:
                 child_idx = self.keypoint2index[node.children[0].name]
-                x_dir = pose[index['Hips']] - pose[index['RightUpLeg']]
+                x_dir = pose[index['Hips']] - pose[joint_idx]
                 y_dir = pose[joint_idx] - pose[child_idx]
                 z_dir = None
                 order = 'yzx'
