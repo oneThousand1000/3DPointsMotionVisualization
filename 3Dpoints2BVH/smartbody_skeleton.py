@@ -85,13 +85,13 @@ class SmartBodySkeleton(object):
             'RightUpLeg': [-1,-1, 0],
             'RightLeg': [0, -1, 0],
             'RightFoot': [0, -1, 0],
-            'RightFoot_End': [0, 0, 1],
+            'RightFoot_End': [0, -1, 1],
             'LeftUpLeg': [1, -1, 0],
             'LeftLeg': [0, -1, 0],
             'LeftToe': [0, -1, 0],
             'RightToe': [0, -1, 0],
             'LeftFoot': [0, -1, 0],
-            'LeftFoot_End': [0, 0, 1],
+            'LeftFoot_End': [0, -1, 1],
             'Spine': [0, 1, 0],
             'Spine3': [0, 1, 0],
             'Neck': [0, 1, 0],
@@ -195,51 +195,15 @@ class SmartBodySkeleton(object):
                 y_dir = pose[index['Spine']] - pose[joint_idx]
                 z_dir = None
                 order = 'yzx'
-            elif joint == 'RightUpLeg':
+            elif joint in ['RightUpLeg', 'RightLeg']:
                 child_idx = self.keypoint2index[node.children[0].name]
-                x_dir = pose[index['Hips']] - pose[joint_idx]
+                x_dir = pose[index['Hips']] - pose[index['RightUpLeg']]
                 y_dir = pose[joint_idx] - pose[child_idx]
                 z_dir = None
                 order = 'yzx'
-            elif joint == 'RightLeg':
+            elif joint in ['LeftUpLeg', 'LeftLeg']:
                 child_idx = self.keypoint2index[node.children[0].name]
-                x_dir = pose[index['RightUpLeg']] - pose[joint_idx]
-                y_dir = pose[joint_idx] - pose[child_idx]
-                z_dir = None
-                order = 'yzx'
-            elif joint == 'RightFoot':
-                child_idx = self.keypoint2index[node.children[0].name]
-                x_dir = pose[index['RightLeg']] - pose[joint_idx]
-                y_dir = pose[joint_idx] - pose[child_idx]
-                z_dir = None
-                order = 'yzx'
-            elif joint == 'RightToe':
-                child_idx = self.keypoint2index[node.children[0].name]
-                x_dir = pose[index['RightFoot']] - pose[joint_idx]
-                y_dir = pose[joint_idx] - pose[child_idx]
-                z_dir = None
-                order = 'yzx'
-            elif joint =='LeftUpLeg':
-                child_idx = self.keypoint2index[node.children[0].name]
-                x_dir = pose[joint_idx] - pose[index['Hips']]
-                y_dir = pose[joint_idx] - pose[child_idx]
-                z_dir = None
-                order = 'yzx'
-            elif joint =='LeftLeg':
-                child_idx = self.keypoint2index[node.children[0].name]
-                x_dir = pose[joint_idx] - pose[index['LeftUpLeg']]
-                y_dir = pose[joint_idx] - pose[child_idx]
-                z_dir = None
-                order = 'yzx'
-            elif joint == 'LeftFoot':
-                child_idx = self.keypoint2index[node.children[0].name]
-                x_dir = pose[joint_idx] - pose[index['LeftLeg']]
-                y_dir = pose[joint_idx] - pose[child_idx]
-                z_dir = None
-                order = 'yzx'
-            elif joint == 'LeftToe':
-                child_idx = self.keypoint2index[node.children[0].name]
-                x_dir = pose[joint_idx] - pose[index['LeftFoot']]
+                x_dir = pose[index['LeftUpLeg']] - pose[index['Hips']]
                 y_dir = pose[joint_idx] - pose[child_idx]
                 z_dir = None
                 order = 'yzx'

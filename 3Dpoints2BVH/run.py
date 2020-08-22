@@ -15,16 +15,18 @@ def getStandardFrames(frames):
         new_frames[i][0][0] = frames[i][2][0] * -1
         new_frames[i][0][1] = frames[i][2][1]
         new_frames[i][0][2] = frames[i][2][2]
-        # RightHip
+
+
+        # RightUpLeg
         new_frames[i][1][0] = frames[i][16][0] * -1
         new_frames[i][1][1] = frames[i][16][1]
         new_frames[i][1][2] = frames[i][16][2]
 
-        # RightKnee
+        # RightLeg
         new_frames[i][2][0] = frames[i][17][0] * -1
         new_frames[i][2][1] = frames[i][17][1]
         new_frames[i][2][2] = frames[i][17][2]
-        # RightAnkle
+        # RightFoot
         new_frames[i][3][0] = frames[i][18][0] * -1
         new_frames[i][3][1] = frames[i][18][1]
         new_frames[i][3][2] = frames[i][18][2]
@@ -112,6 +114,8 @@ def getStandardFrames(frames):
         new_frames[i][20][0] = (frames[i][20][0] + frames[i][19][0]) / 2 * -1
         new_frames[i][20][1] = (frames[i][20][1] + frames[i][19][1]) / 2
         new_frames[i][20][2] = (frames[i][20][2] + frames[i][19][2]) / 2
+
+
         foot_z=min(new_frames[i][19][2],new_frames[i][20][2])
         for j in range(21):
             new_frames[i][j][2]-=foot_z
@@ -126,7 +130,7 @@ if __name__ == '__main__':
     # output_bvh_path='%s.bvh'%music_name
 
 
-    with open('./DANCE_R_10.json','r') as fin:
+    with open('./skeletons.json','r') as fin:
         data = json.load(fin)
 
     frames=np.array(data['skeletons'])
