@@ -195,9 +195,15 @@ class SmartBodySkeleton(object):
                 y_dir = pose[index['Spine']] - pose[joint_idx]
                 z_dir = None
                 order = 'yzx'
-            elif joint in ['RightUpLeg', 'RightLeg']:
+            elif joint == 'RightUpLeg':
                 child_idx = self.keypoint2index[node.children[0].name]
                 x_dir = pose[index['Hips']] - pose[joint_idx]
+                y_dir = pose[joint_idx] - pose[child_idx]
+                z_dir = None
+                order = 'yzx'
+            elif joint == 'RightLeg':
+                child_idx = self.keypoint2index[node.children[0].name]
+                x_dir = pose[index['RightUpLeg']] - pose[joint_idx]
                 y_dir = pose[joint_idx] - pose[child_idx]
                 z_dir = None
                 order = 'yzx'
