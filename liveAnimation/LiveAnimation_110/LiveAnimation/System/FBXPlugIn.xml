@@ -1,0 +1,279 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FBXPlugIn</name>
+    </assembly>
+    <members>
+        <member name="T:FBXPlugIn.ExportDialog">
+            <summary>
+            出力ダイアログ
+            </summary>
+        </member>
+        <member name="M:FBXPlugIn.ExportDialog.#ctor">
+            <summary>
+            コンストラクタ
+            </summary>
+        </member>
+        <member name="M:FBXPlugIn.ExportDialog.buttonFromFile_Click(System.Object,System.EventArgs)">
+            <summary>
+            ファイルから使用する骨を選択する
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="F:FBXPlugIn.ExportDialog.NameTable">
+            <summary>
+            名前テーブル
+            </summary>
+        </member>
+        <member name="F:FBXPlugIn.ExportDialog.components">
+            <summary>
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:FBXPlugIn.ExportDialog.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージ リソースが破棄される場合 true、破棄されない場合は false です。</param>
+        </member>
+        <member name="M:FBXPlugIn.ExportDialog.InitializeComponent">
+            <summary>
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="F:FBXPlugIn.ExportDialog.textBoxModifyName">
+            <summary>
+            名前の変更
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.IsBinary">
+            <summary>
+            バイナリ出力
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.ObjectScale">
+            <summary>
+            スケール
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.IsEmbedMedia">
+            <summary>
+            テクスチャ等をデータ内に含む
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.ExportSkeletonType">
+            <summary>
+            出力するスケルトン
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.ExportSkeletonFileName">
+            <summary>
+            FromFileの場合のファイル名
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.PreFix">
+            <summary>
+            プリフィックス
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.IsModifyName">
+            <summary>
+            名前の変更
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.IsResult">
+            <summary>
+            結果の表示
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.IsAppendRootAndYAngle">
+            <summary>
+            Ｙアングルを含める
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.IsActionTable">
+            <summary>
+            アクションテーブルのモーションを出す
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.IsBlendShape">
+            <summary>
+            ブレンドシェイプ
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.IsAnimation">
+            <summary>
+            アニメーション
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.IsUTF8">
+            <summary>
+            ＵＴＦ－８にする（オフならShift-JIS）
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.InverseX">
+            <summary>
+            反転Ｘ
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.InverseY">
+            <summary>
+            反転Ｙ
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.InverseZ">
+            <summary>
+            反転Ｚ
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.ImageFormat">
+            <summary>
+            イメージフォーマット
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.ExportDialog.IsPhysicsDataXML">
+            <summary>
+            物理データを含める
+            </summary>
+        </member>
+        <member name="T:FBXPlugIn.ExportDialog.ExportSkeleton">
+            <summary>
+            出力するスケルトン
+            </summary>
+        </member>
+        <member name="F:FBXPlugIn.ExportDialog.ExportSkeleton.All">
+            <summary>
+            すべて
+            </summary>
+        </member>
+        <member name="F:FBXPlugIn.ExportDialog.ExportSkeleton.EnvelopeDeformerAsSkeleton">
+            <summary>
+            エンベロープ変形に使用されているスケルトン
+            </summary>
+        </member>
+        <member name="F:FBXPlugIn.ExportDialog.ExportSkeleton.FromFile">
+            <summary>
+            ファイルから選択
+            </summary>
+        </member>
+        <member name="F:FBXPlugIn.ExportDialog.ExportSkeleton.MeshOnly">
+            <summary>
+            メッシュのみ
+            </summary>
+        </member>
+        <member name="T:FBXPlugIn.FBXImportOption">
+            <summary>
+            ＦＢＸインポートオプション
+            </summary>
+        </member>
+        <member name="M:FBXPlugIn.FBXImportOption.#ctor">
+            <summary>
+            ＦＢＸインポートオプション
+            </summary>
+        </member>
+        <member name="F:FBXPlugIn.FBXImportOption.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FBXPlugIn.FBXImportOption.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FBXPlugIn.FBXImportOption.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.FBXImportOption.IsCharacter">
+            <summary>
+            キャラクターか
+            </summary>
+        </member>
+        <member name="P:FBXPlugIn.FBXImportOption.ModelScale">
+            <summary>
+            モデルスケール
+            </summary>
+        </member>
+        <member name="T:FBXPlugIn.FBXExport">
+            <summary>
+            ＦＢＸ出力プラグイン
+            </summary>
+        </member>
+        <member name="M:FBXPlugIn.FBXExport.CollectNodes(FBXPlugIn.ExportDialog.ExportSkeleton,LaGame.Actor,System.String)">
+            <summary>
+            出力するノードを集める
+            </summary>
+        </member>
+        <member name="M:FBXPlugIn.FBXExport.AddPreFix(FBX_CPP.NodeInfo,System.String)">
+            <summary>
+            プリフィックスをつける
+            </summary>
+            <param name="nodeInfo">ノードインフォ</param>
+            <param name="preFix">プリフィックス</param>
+        </member>
+        <member name="M:FBXPlugIn.FBXExport.ModifyNameProc(FBX_CPP.NodeInfo)">
+            <summary>
+            名前の変更
+            </summary>
+            <param name="nodeInfo">ノード情報</param>
+        </member>
+        <member name="M:FBXPlugIn.FBXExport.Execute(System.String)">
+            <summary>
+            セーブ
+            </summary>
+            <param name="filename">ファイル名</param>
+            <returns>成功</returns>
+        </member>
+        <member name="T:FBXPlugIn.ResultWindow">
+            <summary>
+            結果ウィンドウ
+            </summary>
+        </member>
+        <member name="M:FBXPlugIn.ResultWindow.#ctor">
+            <summary>
+            結果ウィンドウ
+            </summary>
+        </member>
+        <member name="M:FBXPlugIn.ResultWindow.SetNumberOfNode(System.Int32)">
+            <summary>
+            ノードの数を設定
+            </summary>
+            <param name="i">数</param>
+        </member>
+        <member name="F:FBXPlugIn.ResultWindow.components">
+            <summary>
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:FBXPlugIn.ResultWindow.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージ リソースが破棄される場合 true、破棄されない場合は false です。</param>
+        </member>
+        <member name="M:FBXPlugIn.ResultWindow.InitializeComponent">
+            <summary>
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:FBXPlugIn.FBXImport">
+            <summary>
+            ＦＢＸインポート
+            </summary>
+        </member>
+        <member name="M:FBXPlugIn.FBXImport.Execute(System.String)">
+            <summary>
+            セーブ
+            </summary>
+            <param name="filename">ファイル名</param>
+            <returns>成功</returns>
+        </member>
+    </members>
+</doc>

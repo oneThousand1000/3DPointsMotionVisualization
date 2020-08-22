@@ -1,0 +1,2249 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LaGraphics</name>
+    </assembly>
+    <members>
+        <member name="T:LaGraphics.DrawCreator">
+            <summary>
+            描画ユニット作成
+            </summary>
+        </member>
+        <member name="M:LaGraphics.DrawCreator.SetDevice(Microsoft.Xna.Framework.Graphics.GraphicsDevice)">
+            <summary>
+            デバイスの設定
+            </summary>
+            <param name="gd">グラフィックデバイス</param>
+        </member>
+        <member name="M:LaGraphics.DrawCreator.CreatePoints(LaGraphics.Float3[])">
+            <summary>
+            頂点描画用ユニットを作成
+            </summary>
+            <param name="pos">位置</param>
+            <returns>描画ユニット</returns>
+        </member>
+        <member name="M:LaGraphics.DrawCreator.CreatePolygons(LaGraphics.Float3[],System.Int32[],System.Int32[])">
+            <summary>
+            ポリゴン描画用ユニットを作成
+            </summary>
+            <param name="pos">位置</param>
+            <param name="faceVertNum">フェイス頂点数</param>
+            <param name="posIdx">位置インデックス</param>
+            <returns>描画ユニット</returns>
+        </member>
+        <member name="T:LaGraphics.BBox">
+            <summary>
+            バウンディングボックス
+            </summary>
+        </member>
+        <member name="F:LaGraphics.BBox.CornerCount">
+            <summary>
+            コーナーの数
+            </summary>
+        </member>
+        <member name="F:LaGraphics.BBox.Max">
+            <summary>
+            最大
+            </summary>
+        </member>
+        <member name="F:LaGraphics.BBox.Min">
+            <summary>
+            最小
+            </summary>
+        </member>
+        <member name="M:LaGraphics.BBox.#ctor(LaGraphics.Float3,LaGraphics.Float3)">
+            <summary>
+            コンストラクタ
+            </summary>
+            <param name="min">最小</param>
+            <param name="max">最大</param>
+        </member>
+        <member name="M:LaGraphics.BBox.Contains(LaGraphics.Float3)">
+            <summary>
+            点が含まれる
+            </summary>
+            <param name="point">点</param>
+            <returns>含まれるタイプ</returns>
+        </member>
+        <member name="M:LaGraphics.BBox.GetCorners">
+            <summary>
+            コーナーの取得
+            </summary>
+            <returns>コーナーリスト</returns>
+        </member>
+        <member name="M:LaGraphics.BBox.GetCorners(LaGraphics.Float3[])">
+            <summary>
+            コーナーの取得
+            </summary>
+            <param name="corners">コーナー</param>
+        </member>
+        <member name="P:LaGraphics.BBox.Center">
+            <summary>
+            センター
+            </summary>
+        </member>
+        <member name="T:LaGraphics.Vector2Util">
+            <summary>
+            ベクトル２ユーティリティ
+            </summary>
+        </member>
+        <member name="M:LaGraphics.Vector2Util.ToVector2(LaGraphics.Float2)">
+            <summary>
+            Vector2に変換
+            </summary>
+            <param name="v">ベクター</param>
+            <returns>Float3</returns>
+        </member>
+        <member name="M:LaGraphics.Vector2Util.ConvScreenCoord(LaGraphics.Float2@,System.Int32,System.Int32)">
+            <summary>
+            Conv3Dto2Dvisなどで-１～１の範囲の座標をスクリーン座標に変換
+            </summary>
+            <param name="pos">位置</param>
+        </member>
+        <member name="M:LaGraphics.Vector2Util.MoveInCircle(Microsoft.Xna.Framework.GameTime,System.Single)">
+            <summary>
+            円内で値を移動させるためのヘルパー
+            </summary>
+            <param name="gameTime">ゲームタイム</param>
+            <param name="speed">スピード</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:LaGraphics.Vector2Util.CalcAngle(LaGraphics.Float2)">
+            <summary>
+            座標から角度を求める(求まらないときは、0fを返す)
+            </summary>
+            <param name="p">ベクトル</param>
+            <returns>角度</returns>
+        </member>
+        <member name="M:LaGraphics.Vector2Util.GetVector2FromFloatArray(System.Single[],System.Int32)">
+            <summary>
+            float[]からFloat2を得る
+            </summary>
+            <param name="array">配列</param>
+            <param name="idx">インデックス</param>
+            <returns>ベクター２</returns>
+        </member>
+        <member name="M:LaGraphics.Vector2Util.ConvertVector2(System.Single[])">
+            <summary>
+            float[]をFloat3[]に変換
+            </summary>
+            <param name="array">配列</param>
+            <returns>ベクター2配列</returns>
+        </member>
+        <member name="T:LaGraphics.Float4">
+            <summary>
+            ベクター４
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Float4.X">
+            <summary>
+            座標
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Float4.Y">
+            <summary>
+            座標
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Float4.Z">
+            <summary>
+            座標
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Float4.W">
+            <summary>
+            座標
+            </summary>
+        </member>
+        <member name="M:LaGraphics.Float4.Transform(LaGraphics.Float4,LaGraphics.Matrix44)">
+            <summary>
+            トランスフォーム
+            </summary>
+            <param name="position">ベクトル</param>
+            <param name="matrix">マトリックス</param>
+            <returns>ベクトル</returns>
+        </member>
+        <member name="M:LaGraphics.Float4.Transform(LaGraphics.Float4@,LaGraphics.Matrix44@,LaGraphics.Float4@)">
+            <summary>
+            トランスフォーム
+            </summary>
+            <param name="position">位置</param>
+            <param name="matrix">マトリックス</param>
+            <param name="result">結果</param>
+        </member>
+        <member name="T:LaGraphics.Float3">
+            <summary>
+            ベクター３
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Float3.X">
+            <summary>
+            座標
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Float3.Y">
+            <summary>
+            座標
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Float3.Z">
+            <summary>
+            座標
+            </summary>
+        </member>
+        <member name="T:LaGraphics.Float2">
+            <summary>
+            ベクター３
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Float2.X">
+            <summary>
+            座標
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Float2.Y">
+            <summary>
+            座標
+            </summary>
+        </member>
+        <member name="T:LaGraphics.Tex">
+            <summary>
+            テクスチャ
+            </summary>
+        </member>
+        <member name="T:LaGraphics.Tex2D">
+            <summary>
+            ２Ｄテクスチャ
+            </summary>
+        </member>
+        <member name="T:LaGraphics.Tex3D">
+            <summary>
+            ３Ｄテクスチャ
+            </summary>
+        </member>
+        <member name="T:LaGraphics.TexCube">
+            <summary>
+            キューブテクスチャ
+            </summary>
+        </member>
+        <member name="T:LaGraphics.FloatUtil">
+            <summary>
+            フロートユーティリティ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.FloatUtil.MATH_PI">
+            <summary>
+            π
+            </summary>
+        </member>
+        <member name="F:LaGraphics.FloatUtil.MATH_2PI">
+            <summary>
+            2π
+            </summary>
+        </member>
+        <member name="F:LaGraphics.FloatUtil.MATH_TORAD">
+            <summary>
+            Radianへ変換（=LaPIDIV180）
+            </summary>
+        </member>
+        <member name="F:LaGraphics.FloatUtil.MATH_TODEG">
+            <summary>
+            Degreeへ変換
+            </summary>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.Clamp(System.Single,System.Single,System.Single)">
+            <summary>
+            リミット
+            </summary>
+            <param name="value">値</param>
+            <param name="min">最小</param>
+            <param name="max">最大</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.LimitRadian(System.Single)">
+            <summary>
+            ラジアン値を-π～πまでの間に変換する
+            </summary>
+            <param name="fAng">ラジアン</param>
+            <returns>ラジアン</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.LimitRadian2(System.Single)">
+            <summary>
+            ラジアン値を0～2πまでの間に変換する
+            </summary>
+            <param name="fAng">ラジアン</param>
+            <returns>ラジアン</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.LimitAngle(System.Single)">
+            <summary>
+            角度を-180～180までの間に変換する
+            </summary>
+            <param name="fAng">角度（度数法）</param>
+            <returns>角度（度数法）</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.LimitAngle2(System.Single)">
+            <summary>
+            角度を0～360までの間に変換する
+            </summary>
+            <param name="fAng">角度（度数法）</param>
+            <returns>角度（度数法）</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.IsInvalid(System.Single)">
+            <summary>
+            無効な値
+            </summary>
+            <param name="val">値</param>
+            <returns>無効か</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.DifAngle(System.Single,System.Single)">
+            <summary>
+            角度の差を求める
+            a＜bのときはプラスの値
+            逆のときはマイナスの値
+            </summary>
+            <param name="a">角度Ａ</param>
+            <param name="b">角度Ｂ</param>
+            <returns>角度</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.ZeroHermite(System.Single)">
+            <summary>
+            スロープ０のエルミート補間
+            リニアで動いているものを滑らかに動かしたいときに使用する
+            </summary>
+            <param name="fParam">値（通常０～１）</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.Linear(System.Single)">
+            <summary>
+            リニア補間(アフィン結合で直線を描くとき使用)
+            </summary>
+            <param name="fParam">値（通常０～１）</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.Lerp(System.Single@,System.Single,System.Single)">
+            <summary>
+            補間
+            </summary>
+            <param name="cur">現在の値</param>
+            <param name="dest">デスティネーション</param>
+            <param name="blendRatio">ブレンド（０～１）</param>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.Lerp(System.Single,System.Single,System.Single)">
+            <summary>
+            補間
+            </summary>
+            <param name="cur">現在の値</param>
+            <param name="dest">デスティネーション</param>
+            <param name="blendRatio">ブレンド（０～１）</param>
+            <returns></returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.Attenuation(System.Single,System.Single)">
+            <summary>
+            減衰（０に近づける）
+            </summary>
+            <param name="val">値</param>
+            <param name="att">減衰値</param>
+            <returns>減衰後の値</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.ToNear(System.Single,System.Single,System.Single)">
+            <summary>
+            値を近づけていく
+            </summary>
+            <param name="cur">現在の値</param>
+            <param name="dest">デスティネーション</param>
+            <param name="near">近づける値</param>
+            <returns>結果</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.Draw(Microsoft.Xna.Framework.Graphics.SpriteFont,Microsoft.Xna.Framework.Graphics.SpriteBatch,System.Single,System.Int32,Microsoft.Xna.Framework.Vector2,Microsoft.Xna.Framework.Color,System.Single)">
+            <summary>
+            描画
+            </summary>
+            <param name="spriteFont">スプライトフォント</param>
+            <param name="spriteBatch">スプライトバッチ</param>
+            <param name="value">値</param>
+            <param name="keta">桁</param>
+            <param name="pos">位置</param>
+            <param name="col">カラー</param>
+            <param name="scale">スケール</param>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.AlignGrid(System.Single,System.Single)">
+            <summary>
+            グリッドに整列
+            </summary>
+            <param name="val">値</param>
+            <param name="grid">グリッド</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.sinf(System.Single)">
+            <summary>
+            サイン
+            </summary>
+            <param name="fSin">ラジアン</param>
+            <returns>サイン</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.cosf(System.Single)">
+            <summary>
+            コサイン
+            </summary>
+            <param name="fCos">ラジアン</param>
+            <returns>コサイン</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.asinf(System.Single)">
+            <summary>
+            アークサイン
+            </summary>
+            <param name="fSin">サイン</param>
+            <returns>アークサイン</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.acosf(System.Single)">
+            <summary>
+            アークコサイン
+            </summary>
+            <param name="fCos">コサイン</param>
+            <returns>アークコサイン</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.sqrtf(System.Single)">
+            <summary>
+            スクエアルート
+            </summary>
+            <param name="val">値</param>
+            <returns>スクエアルート</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.atanf(System.Single)">
+            <summary>
+            アークタンジェント
+            </summary>
+            <param name="fTan">タンジェント</param>
+            <returns>アークタンジェント</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.atan2f(System.Single,System.Single)">
+            <summary>
+            アークタンジェント
+            </summary>
+            <param name="y">Y</param>
+            <param name="x">X</param>
+            <returns>アークタンジェント</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.CalcCosineRule(System.Single,System.Single,System.Single)">
+            <summary>
+            余弦定理から cos の計算
+            三角形 ABC（BC==fA CA==fB AB==fC）の cos A を求める
+            条件 fA, fB, fC > 0、且つ、ABC は三角形
+            </summary>
+            <param name="fA"></param>
+            <param name="fB"></param>
+            <param name="fC"></param>
+            <returns></returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.CalcSinFromCos(System.Single)">
+            <summary>
+            cos から sin を求める。fCos が正しい cosine の値でなければならない
+            </summary>
+            <param name="fCos">コサイン</param>
+            <returns>サイン</returns>
+        </member>
+        <member name="M:LaGraphics.FloatUtil.CalcCosFromSin(System.Single)">
+            <summary>
+            サインから、コサインを求める
+            </summary>
+            <param name="fSin">サイン</param>
+            <returns>コサイン</returns>
+        </member>
+        <member name="T:LaGraphics.Vector3Util">
+            <summary>
+            ベクトル３ユーティリティ
+            </summary>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.ToVector3(LaGraphics.Float3)">
+            <summary>
+            Vector3に変換
+            </summary>
+            <param name="v">ベクター</param>
+            <returns>Float3</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.Get(System.Int32,LaGraphics.Float3)">
+            <summary>
+            取得
+            </summary>
+            <param name="xyz">軸</param>
+            <param name="p">ベクター３</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.Set(System.Int32,LaGraphics.Float3@,System.Single)">
+            <summary>
+            設定
+            </summary>
+            <param name="xyz">軸</param>
+            <param name="p">ベクター３</param>
+            <param name="val">値</param>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.IsInvalid(LaGraphics.Float3)">
+            <summary>
+            無効な値か
+            </summary>
+            <param name="v">ベクター３</param>
+            <returns>無効か</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.Get2VectorAngle(LaGraphics.Float3,LaGraphics.Float3)">
+            <summary>
+            ２つのベクトル間の角度
+            正規化済みのベクトルを入れてください
+            </summary>
+            <param name="a">ベクトルＡ</param>
+            <param name="b">ベクトルＢ</param>
+            <returns>角度（度数法）</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.Get2VectorAngle(LaGraphics.Float3,LaGraphics.Float3,LaGraphics.Float3)">
+            <summary>
+            ２つのベクトル間の角度
+            正規化済みのベクトルを入れてください
+            </summary>
+            <param name="a">ベクトルＡ</param>
+            <param name="b">ベクトルＢ</param>
+            <param name="up">アップベクター</param>
+            <returns>角度（度数法）</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.GetVector3FromFloatArray(System.Single[],System.Int32)">
+            <summary>
+            float[]からFloat3を得る
+            </summary>
+            <param name="array">float配列</param>
+            <param name="idx">インデックス</param>
+            <returns>ベクター３</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.RotationGimbalAvoid(LaGraphics.Float3,LaGraphics.Float3)">
+            <summary>
+            角度修正
+            ＋－１８０度以内の角度にする
+            </summary>
+            <param name="prev">以前の角度</param>
+            <param name="cur">現在の角度</param>
+            <returns>修正後の角度</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.RotationGimbalAvoidSimple(LaGraphics.Float3,LaGraphics.Float3)">
+            <summary>
+            角度修正
+            ＋－１８０度以内の角度にする
+            </summary>
+            <param name="prev">以前の角度</param>
+            <param name="cur">現在の角度</param>
+            <returns>修正後の角度</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.GetDirToRotY(LaGraphics.Float3)">
+            <summary>
+            方向からＹ軸回転を割り出す
+            </summary>
+            <param name="dir">ディレクション</param>
+            <returns>角度（度数法）</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.Conv3Dto2Dvis(LaGraphics.Float3@,LaGraphics.Matrix44,LaGraphics.Matrix44,System.Single,System.Single)">
+            <summary>
+            ３Ｄ座標を、２Ｄ座標に変換
+            </summary>
+            <param name="vec">値</param>
+            <param name="pCamera">カメラ</param>
+            <param name="fXRatio">Ｘ比（通常１）</param>
+            <param name="fYRatio">Ｙ比（通常１）</param>
+            <returns>画面内か</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.Conv3Dto2Dvis(LaGraphics.Float3@,LaGraphics.Matrix44@,LaGraphics.Matrix44@,System.Single,System.Single)">
+            <summary>
+             ３Ｄ座標を、２Ｄ座標に変換
+            </summary>
+            <param name="vec">値</param>
+            <param name="mxView">ビューマトリックス</param>
+            <param name="mxProject">プロジェクションマトリックス</param>
+            <param name="fXRatio">Ｘ比（通常１）</param>
+            <param name="fYRatio">Ｙ比（通常１）</param>
+            <returns>画面内か</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.Conv3Dto2DvisAndScale(LaGraphics.Float3@,LaGraphics.Matrix44,LaGraphics.Matrix44,System.Single,System.Single,System.Single@)">
+            <summary>
+            ３Ｄ座標を、２Ｄ座標に変換
+            </summary>
+            <param name="vec">値</param>
+            <param name="cam">カメラ</param>
+            <param name="fXRatio">Ｘ比（通常１）</param>
+            <param name="fYRatio">Ｙ比（通常１）</param>
+            <param name="scale">スケール</param>
+            <returns>画面内か</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.Conv3Dto2DvisAndScale(LaGraphics.Float3@,LaGraphics.Matrix44@,LaGraphics.Matrix44@,System.Single,System.Single,System.Single@)">
+            <summary>
+            ３Ｄ座標を、２Ｄ座標に変換
+            </summary>
+            <param name="vec">値</param>
+            <param name="mxView">ビューマトリックス</param>
+            <param name="mxProject">プロジェクションマトリックス</param>
+            <param name="fXRatio">Ｘ比（通常１）</param>
+            <param name="fYRatio">Ｙ比（通常１）</param>
+            <param name="scale">スケール</param>
+            <returns>画面内か</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.Conv2Dto3Dvis(LaGraphics.Float3@,LaGraphics.CameraProjectionType,LaGraphics.Matrix44,LaGraphics.Matrix44,System.Single,System.Single)">
+            <summary>
+            ２Ｄ座標を、３Ｄ座標に変換
+            </summary>
+            <param name="vec">値</param>
+            <param name="cam">カメラ</param>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.conv2Dto3Dmove(LaGraphics.Float3,LaGraphics.Float3,LaGraphics.CameraProjectionType,LaGraphics.Matrix44,LaGraphics.Matrix44,System.Single,System.Single)">
+            <summary>
+            ２Ｄ移動量を、３Ｄ移動量に変換
+            </summary>
+            <param name="p1">位置１</param>
+            <param name="p2">位置２</param>
+            <param name="cam">カメラ</param>
+            <returns>移動量</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.InterpolationVertex(LaGraphics.Float3@,LaGraphics.Float3@,LaGraphics.Float3@,System.Single)">
+            <summary>
+            頂点補間(似たような関数が他にあるので、削除予定)
+            </summary>
+            <param name="inAns">結果</param>
+            <param name="inV0">値０</param>
+            <param name="inV1">値１</param>
+            <param name="fW">ウェイト</param>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.DistanceLineAndPoint(LaGraphics.Float3@,LaGraphics.Float3@,LaGraphics.Float3@)">
+            <summary>
+            ラインと点の距離をはかる
+            </summary>
+            <param name="inPoint">位置</param>
+            <param name="inV0">ライン始点</param>
+            <param name="inV1">方向</param>
+            <returns>距離</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.DistanceLineAndPoint(LaGraphics.Float3,LaGraphics.Float3,LaGraphics.Float3)">
+            <summary>
+            ラインと点の距離をはかる
+            </summary>
+            <param name="inPoint">位置</param>
+            <param name="inV0">ライン始点</param>
+            <param name="inV1">方向</param>
+            <returns>距離</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.DistanceRayAndLine(LaGraphics.RayF,LaGraphics.Float3,LaGraphics.Float3)">
+            <summary>
+            レイとラインの距離をはかる
+            </summary>
+            <param name="ray">レイ</param>
+            <param name="p">ライン位置</param>
+            <param name="v">ライン方向</param>
+            <returns>距離</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.CalcLineToLine(LaGraphics.Float3,LaGraphics.Float3,LaGraphics.Float3,LaGraphics.Float3,LaGraphics.Float3@,LaGraphics.Float3@)">
+            <summary>
+            ラインとラインの距離を測る
+            </summary>
+            <param name="i_vecL0Start">ラインＡ始点</param>
+            <param name="i_vecL0End">ラインＡ終点</param>
+            <param name="i_vecL1Start">ラインＢ始点</param>
+            <param name="i_vecL1End">ラインＢ終点</param>
+            <param name="o_vecRet0">近い位置Ａ</param>
+            <param name="o_vecRet1">近い位置Ｂ</param>
+            <returns>距離</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.AlignGrid(LaGraphics.Float3,System.Single)">
+            <summary>
+            グリッドに整列
+            </summary>
+            <param name="val">値</param>
+            <param name="grid">グリッド</param>
+            <returns>値</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.Rand">
+            <summary>
+            ランダムベクター(正規化されません)
+            </summary>
+            <returns>ベクトル</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.TryParse(System.String,LaGraphics.Float3@)">
+            <summary>
+            トライパース
+            </summary>
+            <param name="str">文字列 0f,0f,0fなど</param>
+            <param name="val">値</param>
+            <returns>成功か</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.GetLinePosition(LaGraphics.Float3[],System.Single)">
+            <summary>
+            ライン上の位置（３ポイント以上必要）
+            </summary>
+            <param name="aPoint">ポイント</param>
+            <param name="fPos">パラメータ距離</param>
+            <returns>位置</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.GetDistanceLinePoint(LaGraphics.Float3,LaGraphics.Float3,LaGraphics.Float3,System.Single@)">
+            <summary>
+            線分と点の距離(lineLengthに点にもっとも近い線上の位置を返す
+            </summary>
+            <param name="point">ポイント</param>
+            <param name="linePos">ライン位置</param>
+            <param name="lineDir">ライン方向</param>
+            <param name="lineDot">近い位置パラメータ</param>
+            <returns>距離</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.GetDistanceRayPoint(LaGraphics.Float3,LaGraphics.Float3,LaGraphics.Float3)">
+            <summary>
+            線分と点の距離
+            </summary>
+            <param name="point">ポイント</param>
+            <param name="rayPos">レイ位置</param>
+            <param name="rayDir">レイ方向</param>
+            <returns>距離</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.MakeBoldLine(System.Single,LaGraphics.Float3[])">
+            <summary>
+            太いラインを書くための頂点バッファ作成
+            </summary>
+            <param name="bold">太さ</param>
+            <param name="path">パス（点列）</param>
+            <returns>頂点バッファ用の位置配列</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.GetNextPointDir(System.Int32,LaGraphics.Float3[])">
+            <summary>
+            次のポイントへの方向（極小値以上の）
+            </summary>
+            <param name="i">インデックス</param>
+            <param name="path">パス（点列）</param>
+            <returns>次への方向</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.ConvertVector3(System.Single[])">
+            <summary>
+            float[]をFloat3[]に変換
+            </summary>
+            <param name="array">float配列</param>
+            <returns>位置配列</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.ConvertZUp(LaGraphics.Float3[])">
+            <summary>
+            Ｚアップの頂点をＹアップの頂点にコンバート
+            </summary>
+            <param name="array">位置配列</param>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.ConstraintVectorAngle(LaGraphics.Float3@,LaGraphics.Float3,LaGraphics.Float3,System.Single)">
+            <summary>
+            指定のベクタ(inVec)を基準ベクタ(inBase)から指定角度(fCos = cosin指定)
+            以内に制限する。返値は inVec の長さ。inBase は正規化されていること。
+            </summary>
+            <param name="pAns">結果</param>
+            <param name="inVec">ベクトル</param>
+            <param name="inBase">基準ベクトル</param>
+            <param name="fCos">コサイン</param>
+            <returns>長さ</returns>
+        </member>
+        <member name="M:LaGraphics.Vector3Util.ToSimpleString(LaGraphics.Float3)">
+            <summary>
+            シンプルな文字列に変換
+            </summary>
+            <param name="v">ベクター</param>
+            <returns>文字列</returns>
+        </member>
+        <member name="T:LaGraphics.HardProfile">
+            <summary>
+            プロファイル
+            </summary>
+        </member>
+        <member name="F:LaGraphics.HardProfile.HIDEF">
+            <summary>
+            HIDEFプロファイル
+            </summary>
+        </member>
+        <member name="F:LaGraphics.HardProfile.REACH">
+            <summary>
+            REACHプロファイル
+            </summary>
+        </member>
+        <member name="F:LaGraphics.HardProfile.Max">
+            <summary>
+            カウント
+            </summary>
+        </member>
+        <member name="T:LaGraphics.ShadowType">
+            <summary>
+            影のタイプ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShadowType.None">
+            <summary>
+            なし
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShadowType.Shadow">
+            <summary>
+            影あり
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShadowType.Max">
+            <summary>
+            カウント
+            </summary>
+        </member>
+        <member name="T:LaGraphics.RendarTargetChannel">
+            <summary>
+            レンダーターゲットチャンネル
+            </summary>
+        </member>
+        <member name="F:LaGraphics.RendarTargetChannel.NN">
+            <summary>
+            なし
+            </summary>
+        </member>
+        <member name="F:LaGraphics.RendarTargetChannel.AE">
+            <summary>
+            アルファ拡張
+            </summary>
+        </member>
+        <member name="F:LaGraphics.RendarTargetChannel.Max">
+            <summary>
+            カウント
+            </summary>
+        </member>
+        <member name="T:LaGraphics.ShaderType">
+            <summary>
+            ユーザー切り替えシェーダータイプ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.Constant">
+            <summary>
+            コンスタント
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.Lambert">
+            <summary>
+            ランバート
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.Phong">
+            <summary>
+            フォン
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.Reflection">
+            <summary>
+            リフレクション
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.Toon">
+            <summary>
+            トゥーン
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.Normal">
+            <summary>
+            法線
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.Tangent">
+            <summary>
+            タンジェント
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.VelvetA">
+            <summary>
+            ベルベットアディティブ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.Glass">
+            <summary>
+            グラス
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.HalfLambert">
+            <summary>
+            ハーフランバート
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.Shadow">
+            <summary>
+            影
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.ToonM">
+            <summary>
+            トゥーンミク
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.Depth">
+            <summary>
+            深度
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.AlphaCompare">
+            <summary>
+            アルファ比較
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ShaderType.Max">
+            <summary>
+            カウント
+            </summary>
+        </member>
+        <member name="T:LaGraphics.AlphaTestEnable">
+            <summary>
+            アルファテスト有効
+            </summary>
+        </member>
+        <member name="F:LaGraphics.AlphaTestEnable.None">
+            <summary>
+            なし
+            </summary>
+        </member>
+        <member name="F:LaGraphics.AlphaTestEnable.ATest">
+            <summary>
+            アルファテストあり
+            </summary>
+        </member>
+        <member name="F:LaGraphics.AlphaTestEnable.Max">
+            <summary>
+            カウント
+            </summary>
+        </member>
+        <member name="T:LaGraphics.TextureEnable">
+            <summary>
+            テクスチャタイプ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.TextureEnable.None">
+            <summary>
+            なし
+            </summary>
+        </member>
+        <member name="F:LaGraphics.TextureEnable.Tex">
+            <summary>
+            テクスチャあり
+            </summary>
+        </member>
+        <member name="F:LaGraphics.TextureEnable.Max">
+            <summary>
+            カウント
+            </summary>
+        </member>
+        <member name="T:LaGraphics.SphereMapType">
+            <summary>
+            スフィアマップ有効
+            </summary>
+        </member>
+        <member name="F:LaGraphics.SphereMapType.SMN">
+            <summary>
+            なし
+            </summary>
+        </member>
+        <member name="F:LaGraphics.SphereMapType.SMM">
+            <summary>
+            スフィアマップ乗算
+            </summary>
+        </member>
+        <member name="F:LaGraphics.SphereMapType.SMA">
+            <summary>
+            スフィアマップ加算
+            </summary>
+        </member>
+        <member name="F:LaGraphics.SphereMapType.Max">
+            <summary>
+            カウント
+            </summary>
+        </member>
+        <member name="T:LaGraphics.VFaceEnable">
+            <summary>
+            両面描画
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VFaceEnable.Face">
+            <summary>
+            普通に描画する
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VFaceEnable.VFace">
+            <summary>
+            裏面を描画するとき、法線を反転する
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VFaceEnable.Max">
+            <summary>
+            カウント
+            </summary>
+        </member>
+        <member name="T:LaGraphics.DeviceXNA">
+            <summary>
+            ＸＮＡデバイス
+            </summary>
+        </member>
+        <member name="T:LaGraphics.ParticleVertex">
+            <summary>
+            パーティクル頂点
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ParticleVertex.SizeInBytes">
+            <summary>
+            サイズ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ParticleVertex.Corner">
+            <summary>
+            コーナー
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ParticleVertex.Position">
+            <summary>
+            位置
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ParticleVertex.VD">
+            <summary>
+            頂点定義
+            </summary>
+        </member>
+        <member name="P:LaGraphics.ParticleVertex.VertexDeclaration">
+            <summary>
+            頂点定義
+            </summary>
+        </member>
+        <member name="T:LaGraphics.DrawUnit">
+            <summary>
+            描画ユニット
+            </summary>
+        </member>
+        <member name="M:LaGraphics.DrawUnit.Release">
+            <summary>
+            解放
+            </summary>
+        </member>
+        <member name="M:LaGraphics.DrawUnit.DrawPoints">
+            <summary>
+            頂点描画
+            </summary>
+        </member>
+        <member name="M:LaGraphics.DrawUnit.ModifyPoints(LaGraphics.Float3[])">
+            <summary>
+            頂点変更
+            </summary>
+        </member>
+        <member name="M:LaGraphics.DrawUnit.DrawEdges">
+            <summary>
+            エッジ描画
+            </summary>
+        </member>
+        <member name="M:LaGraphics.DrawUnit.DrawPolygons">
+            <summary>
+            ポリゴン描画
+            </summary>
+        </member>
+        <member name="M:LaGraphics.DrawUnit.ModifyPolygons(LaGraphics.Float3[],System.Int32[],System.Int32[])">
+            <summary>
+            ポリゴン変更
+            </summary>
+        </member>
+        <member name="M:LaGraphics.DrawXNA.Release">
+            <summary>
+            解放
+            </summary>
+        </member>
+        <member name="M:LaGraphics.DrawXNA.DrawPoints">
+            <summary>
+            頂点描画
+            </summary>
+        </member>
+        <member name="M:LaGraphics.DrawXNA.ModifyPoints(LaGraphics.Float3[])">
+            <summary>
+            頂点変更
+            </summary>
+        </member>
+        <member name="M:LaGraphics.DrawXNA.ModifyPolygons(LaGraphics.Float3[],System.Int32[],System.Int32[])">
+            <summary>
+            ポリゴン変更
+            </summary>
+        </member>
+        <member name="T:LaGraphics.BFrustum">
+            <summary>
+            バウンディングフラスタム
+            </summary>
+        </member>
+        <member name="T:LaGraphics.CameraProjectionType">
+            <summary>
+            プロジェクションタイプ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.CameraProjectionType.Perspective">
+            <summary>
+            パースペクティブ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.CameraProjectionType.Ortho">
+            <summary>
+            オーソグラフ
+            </summary>
+        </member>
+        <member name="T:LaGraphics.ContainType">
+            <summary>
+            包含タイプ
+            </summary>
+        </member>
+        <member name="T:LaGraphics.PlaneIntersectType">
+            <summary>
+            平面衝突タイプ
+            </summary>
+        </member>
+        <member name="T:LaGraphics.PixelFillMode">
+            <summary>
+            塗りつぶしモード
+            </summary>
+        </member>
+        <member name="T:LaGraphics.EXYZ">
+            <summary>
+            ＸＹＺ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.EXYZ.X">
+            <summary>
+            X
+            </summary>
+        </member>
+        <member name="F:LaGraphics.EXYZ.Y">
+            <summary>
+            Y
+            </summary>
+        </member>
+        <member name="F:LaGraphics.EXYZ.Z">
+            <summary>
+            Z
+            </summary>
+        </member>
+        <member name="T:LaGraphics.ESelectAxis">
+            <summary>
+            選択軸
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ESelectAxis.None">
+            <summary>
+            なし
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ESelectAxis.X">
+            <summary>
+            Ｘ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ESelectAxis.Y">
+            <summary>
+            Ｙ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ESelectAxis.Z">
+            <summary>
+            Ｚ
+            </summary>
+        </member>
+        <member name="T:LaGraphics.ELR">
+            <summary>
+            ＬＲ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ELR.L">
+            <summary>
+            左
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ELR.R">
+            <summary>
+            右
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ELR.Max">
+            <summary>
+            最大
+            </summary>
+        </member>
+        <member name="T:LaGraphics.EHV">
+            <summary>
+            垂直・水平
+            </summary>
+        </member>
+        <member name="F:LaGraphics.EHV.Horizon">
+            <summary>
+            水平
+            </summary>
+        </member>
+        <member name="F:LaGraphics.EHV.Vertical">
+            <summary>
+            垂直
+            </summary>
+        </member>
+        <member name="T:LaGraphics.ETransform">
+            <summary>
+            トランスフォーム
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ETransform.Scaling">
+            <summary>
+            スケーリング
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ETransform.Rotation">
+            <summary>
+            ローテーション
+            </summary>
+        </member>
+        <member name="F:LaGraphics.ETransform.Translation">
+            <summary>
+            トランスレーション
+            </summary>
+        </member>
+        <member name="T:LaGraphics.EPNXYZ">
+            <summary>
+            ＋－ＸＹＺフラグ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.EPNXYZ.PX">
+            <summary>
+            ＋Ｘ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.EPNXYZ.NX">
+            <summary>
+            －Ｘ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.EPNXYZ.PY">
+            <summary>
+            ＋Ｙ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.EPNXYZ.NY">
+            <summary>
+            －Ｙ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.EPNXYZ.PZ">
+            <summary>
+            ＋Ｚ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.EPNXYZ.NZ">
+            <summary>
+            －Ｚ
+            </summary>
+        </member>
+        <member name="T:LaGraphics.XNA_VERTSIZE">
+            <summary>
+            色々な定数
+            </summary>
+        </member>
+        <member name="F:LaGraphics.XNA_VERTSIZE.NORMAL_VERT_STRIDE">
+            <summary>
+            法線つき頂点サイズ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.XNA_VERTSIZE.BUMP_VERT_STRIDE">
+            <summary>
+            バンプ頂点サイズ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.XNA_VERTSIZE.MTLMATRIX_VERT_STRIDE">
+            <summary>
+            複数マトリックス頂点サイズ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.XNA_VERTSIZE.ATVERT_STRIDE8">
+            <summary>
+            ８ウェイトアタッチ頂点サイズ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.XNA_VERTSIZE.ATVERT_STRIDE12">
+            <summary>
+            １２ウェイトアタッチ頂点サイズ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.XNA_VERTSIZE.ATSHAPE_VERT_STRIDE8">
+            <summary>
+            シェイプ８ウェイトアタッチ頂点サイズ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.XNA_VERTSIZE.ATSHAPE_VERT_STRIDE12">
+            <summary>
+            シェイプ１２ウェイトアタッチ頂点サイズ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.XNA_VERTSIZE.ENVELOPE_VERT_STRIDE">
+            <summary>
+            エンベロープ頂点サイズ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.XNA_VERTSIZE.LATTICE_VERT_STRIDE">
+            <summary>
+            ラティス頂点サイズ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.XNA_VERTSIZE.SHAPE_VERT_STRIDE">
+            <summary>
+            シェイプ頂点サイズ
+            </summary>
+        </member>
+        <member name="F:LaGraphics.XNA_VERTSIZE.FIX_WEIGHT_NUM">
+            <summary>
+            固定ウェイト数
+            </summary>
+        </member>
+        <member name="T:LaGraphics.BSphere">
+            <summary>
+            バウンディングスフィア
+            </summary>
+        </member>
+        <member name="F:LaGraphics.BSphere.Center">
+            <summary>
+            センター
+            </summary>
+        </member>
+        <member name="F:LaGraphics.BSphere.Radius">
+            <summary>
+            半径
+            </summary>
+        </member>
+        <member name="M:LaGraphics.ColorF.Lerp(LaGraphics.ColorF,LaGraphics.ColorF,System.Single)">
+            <summary>
+            補間
+            </summary>
+            <param name="value1">値１</param>
+            <param name="value2">値２</param>
+            <param name="amount">補間値</param>
+            <returns>カラー</returns>
+        </member>
+        <member name="M:LaGraphics.ColorF.Lerp(LaGraphics.ColorF@,LaGraphics.ColorF@,System.Single,LaGraphics.ColorF@)">
+            <summary>
+            補間
+            </summary>
+            <param name="value1">値１</param>
+            <param name="value2">値２</param>
+            <param name="amount">補間値</param>
+            <param name="result">結果</param>
+        </member>
+        <member name="M:LaGraphics.ColorF.ToVector3">
+            <summary>
+            ベクター３に変換
+            </summary>
+            <returns>ベクター３</returns>
+        </member>
+        <member name="M:LaGraphics.ColorF.ToVector4">
+            <summary>
+            ベクター４に変換
+            </summary>
+            <returns>ベクター４</returns>
+        </member>
+        <member name="P:LaGraphics.ColorF.Transparent">
+            <summary>
+            透明
+            </summary>
+        </member>
+        <member name="P:LaGraphics.ColorF.White">
+            <summary>
+            白
+            </summary>
+        </member>
+        <member name="T:LaGraphics.DrawEnv">
+            <summary>
+            描画環境
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.s_positionVertexElements">
+            <summary>
+            頂点位置のみ頂点定義
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.s_positionColorVertexElements">
+            <summary>
+            頂点位置とカラー頂点定義
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.s_shellVertexElements">
+            <summary>
+            外殻座標の書き込み用
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.s_bumpVertexElements">
+            <summary>
+            バンプ頂点定義
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.s_mtlmatrixVertexElements">
+            <summary>
+            通常頂点定義
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.s_attachVertex8Elements">
+            <summary>
+            アタッチ頂点定義
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.s_attachVertex12Elements">
+            <summary>
+            アタッチ頂点定義
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.s_shapeAttachVertex8Elements">
+            <summary>
+            シェイプアタッチ頂点定義
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.s_shapeAttachVertex12Elements">
+            <summary>
+            シェイプアタッチ頂点定義
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.s_envelopeVertexElements">
+            <summary>
+            エンベロープ頂点定義
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.s_latticeVertexElements">
+            <summary>
+            ラティス頂点定義
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.s_shapeVertexElements">
+            <summary>
+            シェイプ頂点定義
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.PositionVD">
+            <summary>
+            頂点定義（位置）
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.PositionColorVD">
+            <summary>
+            頂点定義（位置、カラー）
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.ShellVD">
+            <summary>
+            頂点定義（外殻頂点定義）
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.MtlMatrixVD">
+            <summary>
+            頂点定義（複数のマテリアル、マトリックス指定のあるもの）
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.AttachVD8">
+            <summary>
+            頂点定義（アタッチウェイト８個）
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.AttachVD12">
+            <summary>
+            頂点定義（アタッチウェイト１２個）
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.ShapeAttachVD8">
+            <summary>
+            頂点定義（シェイプアタッチウェイト８個）
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.ShapeAttachVD12">
+            <summary>
+            頂点定義（シェイプアタッチウェイト１２個）
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.EnvelopeVD">
+            <summary>
+            頂点定義（エンベロープ）
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.LatticeVD">
+            <summary>
+            頂点定義（ラティス）
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.BumpVD">
+            <summary>
+            頂点定義（バンプ）
+            </summary>
+        </member>
+        <member name="F:LaGraphics.VertexDeclXNA.ShapeVD">
+            <summary>
+            頂点定義（シェイプ）
+            </summary>
+        </member>
+        <member name="T:LaGraphics.MatrixUtil">
+            <summary>
+            マトリックスユーティリティ
+            </summary>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.ToMatrix44(Microsoft.Xna.Framework.Matrix,LaGraphics.Matrix44@)">
+            <summary>
+            Matrix44に変換
+            </summary>
+            <param name="m">マトリックス(XNA)</param>
+            <param name="o">マトリックス</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.ToMatrix(LaGraphics.Matrix44)">
+            <summary>
+            Matrixに変換
+            </summary>
+            <param name="m">マトリックス(XNA)</param>
+            <param name="o">マトリックス</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.IsIdentity(LaGraphics.Matrix44@)">
+            <summary>
+            アイデンティティか
+            </summary>
+            <param name="mat">マトリックス</param>
+            <returns>アイデンティティか</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.RemoveScale(LaGraphics.Matrix44@)">
+            <summary>
+            スケーリング要素を消す(スケーリング値を返す)
+            </summary>
+            <param name="mat">マトリックス</param>
+            <returns>スケール</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.ApplyScale(LaGraphics.Matrix44@,System.Single)">
+            <summary>
+            スケーリングを適用
+            </summary>
+            <param name="mat">マトリックス</param>
+            <param name="scale">スケール</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.SetScale(LaGraphics.Matrix44@,LaGraphics.Float3)">
+            <summary>
+            スケーリングの設定
+            </summary>
+            <param name="mat">マトリックス</param>
+            <param name="scale">スケール値</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.SetScale(LaGraphics.Matrix44@,System.Single,System.Single,System.Single)">
+            <summary>
+            スケーリングの設定
+            </summary>
+            <param name="mat">マトリックス</param>
+            <param name="sx">Ｘ</param>
+            <param name="sy">Ｙ</param>
+            <param name="sz">Ｚ</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.ApplyRot90(LaGraphics.Matrix44@)">
+            <summary>
+            ９０度回転
+            </summary>
+            <param name="mat">マトリックス</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.CalcLocalOn(LaGraphics.Matrix44@,LaGraphics.Matrix44,LaGraphics.Matrix44)">
+            <summary>
+            inOrg の（ワールド）マトリクスを inBase 上でのローカルに変換
+            (inBase^-1) * inOrg ということ
+            </summary>
+            <param name="inAns">答え</param>
+            <param name="inOrg">オリジナル</param>
+            <param name="inBase">ベース</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.CalcIK(LaGraphics.Matrix44@,LaGraphics.Matrix44@,System.Single,System.Single,LaGraphics.Float3,System.Boolean)">
+            <summary>
+            (0,0,0)を基点として指定点（inTarget）への２Ｄ－２ＢＯＲＮ－ＩＫを計算する
+            fL1, fL2 はＢＯＲＮの長さ。
+            bPstv は間接の曲がる方向。calc_x_ik() の bPstv 参照
+            </summary>
+            <param name="pMat1">マトリックス１</param>
+            <param name="pMat2">マトリックス２</param>
+            <param name="fL1">長さ１</param>
+            <param name="fL2">長さ２</param>
+            <param name="inTarget">ターゲット</param>
+            <param name="bPstv">曲がる方向</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.CalcIKXYPlane(LaGraphics.Matrix44@,LaGraphics.Matrix44@,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+            (0,0,0)を基点としてＸ軸上にある点Ａ(x==fX)へ constraint する
+            ２本の２Ｄ bone のマトリクスを求める（骨の長さは fL1, fL2）
+            
+            bone はＸＹ平面でしか回らない。また、bone の向きは +X 方向
+            よって、出力マトリクス(pMat1, pMat2)はＺのみでまわした結果になる
+            条件：fL1,fL2 > 0.0f
+            bPstv == true の時は、２本の bone は＋Ｙ方向へ曲がる
+            bPstv == falseの時は、２本の bone は－Ｙ方向へ曲がる。
+            </summary>
+            <param name="pMat1">マトリックス１</param>
+            <param name="pMat2">マトリックス２</param>
+            <param name="fX"></param>
+            <param name="fL1">長さ１</param>
+            <param name="fL2">長さ２</param>
+            <param name="bPstv">曲がる方向</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.CalcMatrixTurnX(LaGraphics.Matrix44@,LaGraphics.Float3)">
+            <summary>
+            Ｘ軸回転
+            </summary>
+            <param name="pMat">マトリックス</param>
+            <param name="inTarget">ターゲット</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.CalcMatrixTurnX_YZ_Sub(LaGraphics.Matrix44[],LaGraphics.Float3)">
+            <summary>
+            指定の点（inTarget）へＸ軸を向けるマトリクスを求める
+            Ｘの回転はない。トランスは０になる。
+            aMats[0] はＹ回転、aMats[1] はＺ回転
+            </summary>
+            <param name="aMats">マトリックス２つ</param>
+            <param name="inTarget">ターゲット</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.CalcIKAdjBend(LaGraphics.Matrix44@,LaGraphics.Matrix44@,System.Single,System.Single,LaGraphics.Float3,LaGraphics.Float3,System.Boolean)">
+            <summary>
+            calc_ik() + 関節の点も指定
+            
+            関節の点 + leaf + root の平面上でＩＫする
+            inJntPnt 関節点
+            </summary>
+            <param name="pMat1">マトリックス１</param>
+            <param name="pMat2">マトリックス２</param>
+            <param name="fL1">長さ１</param>
+            <param name="fL2">長さ２</param>
+            <param name="inTarget">ターゲット</param>
+            <param name="inJntPnt">ジョイント位置</param>
+            <param name="bPstv">曲がる方向</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.SetRotX(System.Single)">
+            <summary>
+            回転オペレーターX。
+            回転行列を作るだけで、マトリクスを回転させるのではない。
+            返値は自分自身
+            </summary>
+            <param name="fRad">ラジアン</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.SetRotY(System.Single)">
+            <summary>
+            回転オペレーターY
+            </summary>
+            <param name="fRad">ラジアン</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.SetRotZ(System.Single)">
+            <summary>
+            回転オペレーターZ
+            </summary>
+            <param name="fRad">ラジアン</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.SetRotXYZ(LaGraphics.Float3)">
+            <summary>
+            回転オペレータＸＹＺ
+            </summary>
+            <param name="inveVec">回転</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.SetRotXYZ(System.Single,System.Single,System.Single)">
+            <summary>
+            回転オペレータＸＹＺ
+            </summary>
+            <param name="fRadX">X</param>
+            <param name="fRadY">Y</param>
+            <param name="fRadZ">Z</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.SetRotZYX(LaGraphics.Float3)">
+            <summary>
+            回転オペレータＺＹＸ
+            </summary>
+            <param name="inveVec">回転</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.SetRotZYX(System.Single,System.Single,System.Single)">
+            <summary>
+            回転オペレータＺＹＸ
+            </summary>
+            <param name="fRadX">X</param>
+            <param name="fRadY">Y</param>
+            <param name="fRadZ">Z</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.SetRotXY(LaGraphics.Float3)">
+            <summary>
+            回転オペレータXY
+            </summary>
+            <param name="inveVec">回転</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.SetRotXY(System.Single,System.Single)">
+            <summary>
+            回転マトリックスＸＹ
+            </summary>
+            <param name="fRadX">X</param>
+            <param name="fRadY">Y</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.SetRotYX(LaGraphics.Float3)">
+            <summary>
+            回転マトリックスＹＸ
+            </summary>
+            <param name="inveVec">回転</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.SetRotYX(System.Single,System.Single)">
+            <summary>
+            回転ＹＸ
+            </summary>
+            <param name="fRadX">X</param>
+            <param name="fRadY">Y</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.RotationXYZ(LaGraphics.Float3)">
+            <summary>
+            XYZ回転（ＳＩと同じ回転方式）
+            </summary>
+            <param name="rot">回転</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.RotationXYZ(System.Single,System.Single,System.Single)">
+            <summary>
+            XYZ回転
+            </summary>
+            <param name="fRotX">X</param>
+            <param name="fRotY">Y</param>
+            <param name="fRotZ">Z</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.RotationXYZ(LaGraphics.Matrix44@,LaGraphics.Float3@)">
+            <summary>
+            ＸＹＺ回転
+            </summary>
+            <param name="matDst">マトリックス</param>
+            <param name="rot">回転</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.RotationXYZ(LaGraphics.Matrix44@,LaGraphics.Float3)">
+            <summary>
+            ＸＹＺ回転
+            </summary>
+            <param name="matDst">マトリックス</param>
+            <param name="rot">回転</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.RotationXYZ(LaGraphics.Matrix44@,System.Single,System.Single,System.Single)">
+            <summary>
+            ＸＹＺ回転
+            </summary>
+            <param name="matDst">マトリックス</param>
+            <param name="fRotX">Ｘ</param>
+            <param name="fRotY">Ｙ</param>
+            <param name="fRotZ">Ｚ</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.RotationXYZRef(LaGraphics.Matrix44@,System.Single,System.Single,System.Single)">
+            <summary>
+            ＸＹＺ回転
+            </summary>
+            <param name="matDst">マトリックス</param>
+            <param name="fRotX">Ｘ</param>
+            <param name="fRotY">Ｙ</param>
+            <param name="fRotZ">Ｚ</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.LookAtX(LaGraphics.Matrix44@,LaGraphics.Float3,LaGraphics.Float3,LaGraphics.Float3)">
+            <summary>
+            Ｘ軸とＵＰベクトルと決めて、マトリックスを計算
+            </summary>
+            <param name="matOut">マトリックス</param>
+            <param name="vecFrom">ここから</param>
+            <param name="vecAt">ターゲット</param>
+            <param name="vecUp">アップベクター</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.LookAtX_Z(LaGraphics.Matrix44@,LaGraphics.Float3,LaGraphics.Float3,LaGraphics.Float3)">
+            <summary>
+            Ｘ軸の向きとＺ軸向きを決めて、マトリックスを作成
+            </summary>
+            <param name="matOut">マトリックス</param>
+            <param name="vecFrom">ここから</param>
+            <param name="vecAt">ターゲット</param>
+            <param name="vecZ">Ｚ軸</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.LookAtY_Z(LaGraphics.Matrix44@,LaGraphics.Float3,LaGraphics.Float3,LaGraphics.Float3)">
+            <summary>
+            Ｙ軸の向きとＺ軸向きを決めて、マトリックスを作成
+            </summary>
+            <param name="matOut">マトリックス</param>
+            <param name="vecFrom">ここから</param>
+            <param name="vecAt">ターゲット</param>
+            <param name="vecZ">Ｚ軸</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.LookAtY_X(LaGraphics.Matrix44@,LaGraphics.Float3,LaGraphics.Float3,LaGraphics.Float3)">
+            <summary>
+            Ｙ軸の向きとＸ軸向きを決めて、マトリックスを作成
+            </summary>
+            <param name="matOut">マトリックス</param>
+            <param name="vecFrom">ここから</param>
+            <param name="vecAt">ターゲット</param>
+            <param name="vecX">Ｘ軸</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.LookAtZ_Y(LaGraphics.Matrix44@,LaGraphics.Float3,LaGraphics.Float3,LaGraphics.Float3)">
+            <summary>
+            Ｚ軸とＸ軸の向きを決めて、マトリックスを作成
+            </summary>
+            <param name="matOut">マトリックス</param>
+            <param name="vecFrom">ここから</param>
+            <param name="vecZ">Ｚ向き</param>
+            <param name="vecY">Ｙ向き</param>
+            <returns></returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.GetEulerRadian(LaGraphics.Matrix44)">
+            <summary>
+            回転行列からオイラー角をラジアンで求める
+            この関数で得られた角度をZ->Y->Xの順でかければ元に戻る
+            </summary>
+            <param name="m">マトリックス</param>
+            <returns>ラジアン</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.GetEulerAngle(LaGraphics.Matrix44)">
+            <summary>
+            回転行列からオイラー角を度数法で求める
+            この関数で得られた角度をZ->Y->Xの順でかければ元に戻る
+            </summary>
+            <param name="m">マトリックス</param>
+            <returns>回転（度数法）</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.GetTransform(LaGraphics.Matrix44,LaGraphics.Float3@,LaGraphics.Float3@,LaGraphics.Float3@)">
+            <summary>
+            回転行列からスケール、オイラー角、位置を求める
+            </summary>
+            <param name="m">マトリックス</param>
+            <param name="outScl">スケーリング</param>
+            <param name="outRot">ローテーション（度数法）</param>
+            <param name="outPos">トランスレーション</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.Calc2DConstScale(LaGraphics.Matrix44@,LaGraphics.Matrix44@,LaGraphics.Matrix44@,System.Single)">
+            <summary>
+            ２Ｄ的に一定サイズのマトリックス作成
+            </summary>
+            <param name="mat">マトリックス</param>
+            <param name="matView">ビューマトリックス</param>
+            <param name="matProj">プロジェクションマトリックス</param>
+            <param name="scale">スケール</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.Blend(LaGraphics.Matrix44@,LaGraphics.Matrix44@,System.Single)">
+            <summary>
+            ブレンドマトリックス
+            </summary>
+            <param name="m">マトリックスＡ（結果が入る）</param>
+            <param name="mat">マトリックスＢ</param>
+            <param name="blendRatio">ブレンド比（０～１）</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.BlendRot(LaGraphics.Matrix44@,LaGraphics.Matrix44@,System.Single)">
+            <summary>
+            ブレンド回転(内部でクォータニオンのスラープを使用)
+            </summary>
+            <param name="m">マトリックスＡ（結果も入る）</param>
+            <param name="mat">マトリックスＢ</param>
+            <param name="blendRatio">ブレンド比（０～１）</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.Set3x3(LaGraphics.Matrix44@,LaGraphics.Matrix44)">
+            <summary>
+            3x3の部分をコピー
+            </summary>
+            <param name="mat">マトリックス（結果が入る）</param>
+            <param name="set">設定するマトリックス</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.ToFloatArray(LaGraphics.Matrix44)">
+            <summary>
+            フロート配列に変換
+            </summary>
+            <param name="mat">マトリックス</param>
+            <returns>float配列</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.WriteMatrix(System.IO.BinaryWriter,LaGraphics.Matrix44)">
+            <summary>
+            マトリックスをファイルに書き込み
+            </summary>
+            <param name="bw">バイナリライター</param>
+            <param name="mat">マトリックス</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.ReadMatrix(System.IO.BinaryReader)">
+            <summary>
+            マトリックスをファイルに読み込み
+            </summary>
+            <param name="br">バイナリリーダー</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignX_RZ(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vy成分が0になるように, Z軸に関してRotationする
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <returns>Z軸に関するRotationの値</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignX_RZ_RHand(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vy成分が0になるように, Z軸に関してRotationする(右手系)
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <returns>Z軸に関するRotationの値</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignX_RZ_SinCos(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vy成分が0になるように, Z軸に関してsin,cosでRotationする
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <param name="sz">Zの値でのsin()の値の格納先</param>
+            <param name="cz">Zの値でのcos()の値の格納先</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignX_RZ_SinCos_RHand(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vy成分が0になるように, Z軸に関してsin,cosでRotationする(右手系)
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <param name="sz">Zの値でのsin()の値の格納先</param>
+            <param name="cz">Zの値でのcos()の値の格納先</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignX_RY(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vz成分が0になるように, Y軸に関してRotationする
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <returns>Y軸に関するRotationの値</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignX_RY_RHand(LaGraphics.Matrix44,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vz成分が0になるように, Y軸に関してRotationする(右手系)
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <returns>Y軸に関するRotationの値</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignX_RY_SinCos(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vz成分が0になるように, Y軸に関してsin,cosでRotationする
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <param name="sy">Yの値でのsin()の値の格納先</param>
+            <param name="cy">Yの値でのcos()の値の格納先</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignX_RY_SinCos_RHand(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vz成分が0になるように, Y軸に関してsin,cosでRotationする(右手系)
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <param name="sy">Yの値でのsin()の値の格納先</param>
+            <param name="cy">Yの値でのcos()の値の格納先</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.CalcAlignX_RotZ_SinCos(System.Single,System.Single,System.Single@,System.Single@)">
+            <summary>
+            Y成分が0になるようにZ軸Rotationを行なう. 
+            </summary>
+            <param name="vx">X軸</param>
+            <param name="vy">Y軸</param>
+            <param name="sz">Z軸Rotationの値でのsin()の値の格納先</param>
+            <param name="cz">Z軸Rotationの値でのcos()の値の格納先</param>
+            <returns>sqrt(vx*vx+vy*vy)の値</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.CalcAlignX_RotY_SinCos(System.Single,System.Single,System.Single@,System.Single@)">
+            <summary>
+            Z成分が0になるようにY軸Rotationを行なう. 
+            </summary>
+            <param name="vx">X軸</param>
+            <param name="vz">Z軸</param>
+            <param name="sy">Y軸Rotationの値でのsin()の値の格納先</param>
+            <param name="cy">Y軸Rotationの値でのcos()の値の格納先</param>
+            <returns>sqrt(vx*vx+vz*vz)の値</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.RotZ_SinCos_RHand(System.Single,System.Single,LaGraphics.Matrix44@)">
+            <summary>
+            Z軸に関するsin,cos値指定Rotation(右手系)
+            | d00 d10 d20 d30 | |  c -s  0  0 | | cd00+sd10 -sd00+cd10 d20 d30 |
+            | d01 d11 d21 d31 | |  s  c  0  0 | | cd01+sd11 -sd01+cd11 d21 d31 |
+            | d02 d12 d22 d32 |X|  0  0  1  0 |=| cd02+sd12 -sd02+cd12 d22 d32 |
+            | d03 d13 d23 d33 | |  0  0  0  1 | | cd03+sd13 -sd03+cd13 d23 d33 |
+            </summary>
+            <param name="sinz">Rotation Zの値でのsin()の値</param>
+            <param name="cosz">Rotation Zの値でのcos()の値</param>
+            <param name="pfm">Matrix44の入力,Rotate結果の格納先</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.RotY_SinCos_RHand(System.Single,System.Single,LaGraphics.Matrix44@)">
+            <summary>
+            Y軸に関するsin,cos値指定Rotation(右手系)
+            | d00 d10 d20 d30 | |  c  0  s  0 | | cd00-sd20 d10 sd00+cd20 d30 |
+            | d01 d11 d21 d31 | |  0  1  0  0 | | cd01-sd21 d11 sd01+cd21 d31 |
+            | d02 d12 d22 d32 |X| -s  0  c  0 |=| cd02-sd22 d12 sd02+cd22 d32 |
+            | d03 d13 d23 d33 | |  0  0  0  1 | | cd03-sd23 d13 sd03+cd23 d33 |
+            </summary>
+            <param name="siny">Yの値でのsin()の値</param>
+            <param name="cosy">Yの値でのcos()の値</param>
+            <param name="pfm">Matrix44の入力,Rotate結果の格納先</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.PointLocal(LaGraphics.Matrix44,System.Single,System.Single,System.Single,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            MATRIX:pfmでGlobal座標(gblx,gbly,gblz)をLocal化した
+            Local座標(locx,locy,locz)を取得する
+            </summary>
+            <param name="pfm">Local化する際に参照するMatrix44</param>
+            <param name="gblx">Local化するGlobal Translation X成分</param>
+            <param name="gbly">Local化するGlobal Translation Y成分</param>
+            <param name="gblz">Local化するGlobal Translation Z成分</param>
+            <param name="locx">Local化されたTranslation X成分の格納先</param>
+            <param name="locy">Local化されたTranslation Y成分の格納先</param>
+            <param name="locz">Local化されたTranslation Z成分の格納先</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignZ_RY(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vx成分が0になるように, Y軸に関してRotationする
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <returns>Y軸に関するRotationの値</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignZ_RY_SinCos(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vx成分が0になるように, Y軸に関してsin,cosでRotationする
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <param name="sy">Yの値でのsin()の値の格納先</param>
+            <param name="cy">Yの値でのcos()の値の格納先</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignZ_RY_SinCos_RHand(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vx成分が0になるように, Y軸に関してsin,cosでRotationする(右手系)
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <param name="sy">Yの値でのsin()の値の格納先</param>
+            <param name="cy">Yの値でのcos()の値の格納先</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.CalcAlignZ_RotY_SinCos(System.Single,System.Single,System.Single@,System.Single@)">
+            <summary>
+            X成分が0になるようにY軸Rotationを行なう. 
+            </summary>
+            <param name="vx">X軸</param>
+            <param name="vz">Z軸</param>
+            <param name="sy">Y軸Rotationの値でのsin()の値の格納先</param>
+            <param name="cy">Y軸Rotationの値でのcos()の値の格納先</param>
+            <returns>sqrt(vx*vx+vz*vz)の値</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignY_RZ(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vx成分が0になるように, Z軸に関してRotationする
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <returns>Z軸に関するRotationの値</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignZ_RX(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vy成分が0になるように, X軸に関してRotationする
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <returns>X軸に関するRotationの値</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignY_RX(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vz成分が0になるように, X軸に関してRotationする
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <returns>X軸に関するRotationの値</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignY_RZ_SinCos(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vx成分が0になるように, Z軸に関してsin,cosでRotationする
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <param name="sz">Zの値でのsin()の値の格納先</param>
+            <param name="cz">Zの値でのcos()の値の格納先</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.CalcAlignY_RotZ_SinCos(System.Single,System.Single,System.Single@,System.Single@)">
+            <summary>
+            X成分が0になるようにZ軸Rotationを行なう. 
+            </summary>
+            <param name="vx">X軸</param>
+            <param name="vy">Y軸</param>
+            <param name="sz">Z軸Rotationの値でのsin()の値の格納先</param>
+            <param name="cz">Z軸Rotationの値でのcos()の値の格納先</param>
+            <returns>sqrt(vx*vx+vy*vy)の値</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignZ_RX_SinCos(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vy成分が0になるように, X軸に関してsin,cosでRotationする
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <param name="sx">Xの値でのsin()の値の格納先</param>
+            <param name="cx">Xの値でのcos()の値の格納先</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.CalcAlignZ_RotX_SinCos(System.Single,System.Single,System.Single@,System.Single@)">
+            <summary>
+            Y成分が0になるようにX軸Rotationを行なう. 
+            </summary>
+            <param name="vy">Y軸</param>
+            <param name="vz">Z軸</param>
+            <param name="sx">X軸Rotationの値でのsin()の値の格納先</param>
+            <param name="cx">X軸Rotationの値でのcos()の値の格納先</param>
+            <returns>sqrt(vy*vy+vz*vz)の値</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.RotX_SinCos_RHand(System.Single,System.Single,LaGraphics.Matrix44@)">
+            <summary>
+            X軸に関するsin,cos値指定Rotation(右手系)
+            | d00 d10 d20 d30 | | 1  0  0  0 | | d00  cd10+sd20 -sd10+cd20 d30 |
+            | d01 d11 d21 d31 | | 0  c -s  0 | | d01  cd11+sd21 -sd11+cd21 d31 |
+            | d02 d12 d22 d32 |X| 0  s  c  0 |=| d02  cd12+sd22 -sd12+cd22 d32 |
+            | d03 d13 d23 d33 | | 0  0  0  1 | | d03  cd13+sd23 -sd13+cd23 d33 |
+            </summary>
+            <param name="sinx">Rotation Xの値でのsin()の値</param>
+            <param name="cosx">Rotation Xの値でのcos()の値</param>
+            <param name="pfm">Matrix44の入力,Rotate結果の格納先</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.AlignY_RX_SinCos(LaGraphics.Matrix44@,System.Single@,System.Single@,System.Single@,System.Single@,System.Single@)">
+            <summary>
+            vz成分が0になるように, X軸に関してsin,cosでRotationする(右手系)
+            </summary>
+            <param name="pfmt">マトリックス</param>
+            <param name="vx">X成分の入力,出力</param>
+            <param name="vy">Y成分の入力,出力</param>
+            <param name="vz">Z成分の入力,出力</param>
+            <param name="sx">Xの値でのsin()の値の格納先</param>
+            <param name="cx">Xの値でのcos()の値の格納先</param>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.CalcAlignY_RotX_SinCos(System.Single,System.Single,System.Single@,System.Single@)">
+            <summary>
+            Z成分が0になるようにX軸Rotationを行なう. 
+            </summary>
+            <param name="vy">Y軸</param>
+            <param name="vz">Z軸</param>
+            <param name="sx">X軸Rotationの値でのsin()の値の格納先</param>
+            <param name="cx">X軸Rotationの値でのcos()の値の格納先</param>
+            <returns>sqrt(vy*vy+vz*vz)の値</returns>
+        </member>
+        <member name="M:LaGraphics.MatrixUtil.InvertZ(LaGraphics.Matrix44)">
+            <summary>
+            Ｚ軸に反転
+            </summary>
+            <param name="mat">マトリックス</param>
+            <returns>マトリックス</returns>
+        </member>
+        <member name="P:LaGraphics.MatrixUtil.ZeroScale">
+            <summary>
+            ゼロスケール
+            </summary>
+        </member>
+        <member name="T:LaGraphics.Matrix44">
+            <summary>
+            マトリックス
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M11">
+            <summary>
+            11
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M12">
+            <summary>
+            12
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M13">
+            <summary>
+            13
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M14">
+            <summary>
+            14
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M21">
+            <summary>
+            21
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M22">
+            <summary>
+            22
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M23">
+            <summary>
+            23
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M24">
+            <summary>
+            24
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M31">
+            <summary>
+            31
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M32">
+            <summary>
+            32
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M33">
+            <summary>
+            33
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M34">
+            <summary>
+            34
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M41">
+            <summary>
+            41
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M42">
+            <summary>
+            42
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M43">
+            <summary>
+            43
+            </summary>
+        </member>
+        <member name="F:LaGraphics.Matrix44.M44">
+            <summary>
+            44
+            </summary>
+        </member>
+        <member name="P:LaGraphics.Matrix44.Identity">
+            <summary>
+            アイデンティティ
+            </summary>
+        </member>
+    </members>
+</doc>
