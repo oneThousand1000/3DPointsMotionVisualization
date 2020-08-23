@@ -8,6 +8,62 @@ import smartbody_skeleton
 import json
 
 
+def smooth(a, WSZ):
+    out0 = np.convolve(a, np.ones(WSZ, dtype=int), 'valid') / WSZ
+    r = np.arange(1, WSZ - 1, 2)
+    start = np.cumsum(a[:WSZ - 1])[::2] / r
+    stop = (np.cumsum(a[:-WSZ:-1])[::2] / r)[::-1]
+    return np.concatenate((start, out0, stop))
+
+
+def smooth_skeleton(motion):
+    WSZ = 7
+    skeletons_num = motion.shape[1]
+    skeletons = np.hsplit(motion, skeletons_num)
+    cur_skeleton = np.reshape(skeletons[0], (-1, 3))
+    # print(cur_skeleton.shape)
+    x_seq = np.split(cur_skeleton, 3, axis=1)[0]
+    x_seq = np.reshape(x_seq, -1)
+
+    y_seq = np.split(cur_skeleton, 3, axis=1)[1]
+    y_seq = np.reshape(y_seq, -1)
+
+    z_seq = np.split(cur_skeleton, 3, axis=1)[2]
+    z_seq = np.reshape(z_seq, -1)
+
+    x_smooth = smooth(x_seq, WSZ)
+    y_smooth = smooth(y_seq, WSZ)
+    z_smooth = smooth(z_seq, WSZ)
+    x_smooth = np.array(x_smooth)
+    smooth_result = np.column_stack((x_smooth, y_smooth, z_smooth))
+
+    for i in range(1, motion.shape[1]):
+        cur_skeleton = np.reshape(skeletons[i], (-1, 3))
+        # print(cur_skeleton.shape)
+        x_seq = np.split(cur_skeleton, 3, axis=1)[0]
+        x_seq = np.reshape(x_seq, -1)
+
+        y_seq = np.split(cur_skeleton, 3, axis=1)[1]
+        y_seq = np.reshape(y_seq, -1)
+
+        z_seq = np.split(cur_skeleton, 3, axis=1)[2]
+        z_seq = np.reshape(z_seq, -1)
+
+        x_smooth = smooth(x_seq, WSZ)
+        y_smooth = smooth(y_seq, WSZ)
+        z_smooth = smooth(z_seq, WSZ)
+        x_smooth = np.array(x_smooth)
+        # print(x_smooth.shape)
+        x = np.linspace(1, 5050, 5050)  # X轴数据
+        tmp = np.column_stack((x_smooth, y_smooth, z_smooth))
+        if i == 1:
+            smooth_result = np.stack((smooth_result, tmp), axis=1)
+        else:
+            tmp_ = tmp[:, np.newaxis, :]
+            smooth_result = np.concatenate((smooth_result, tmp_), axis=1)
+
+    return smooth_result
+
 def getStandardFrames(frames):
     new_frames = np.zeros([len(frames), 21, 3])
     for i in range(len(frames)):
@@ -124,16 +180,12 @@ def getStandardFrames(frames):
 
 
 if __name__ == '__main__':
-    # dance_type='T'
-    # music_name='Assassins Tango'
-    # input_json_path='F:/srtp/$RTP/git_files/SRTP/result/%s/%s.json'%(dance_type,music_name)
-    # output_bvh_path='%s.bvh'%music_name
 
 
-    with open('./skeletons.json','r') as fin:
+    with open('./DANCE_W_33.json','r') as fin:
         data = json.load(fin)
 
     frames=np.array(data['skeletons'])
-    frames=getStandardFrames(frames)
+    frames=smooth_skeleton(getStandardFrames(frames))
     smartbody_skeleton = smartbody_skeleton.SmartBodySkeleton()
     smartbody_skeleton.poses2bvh(frames, output_file='./test.bvh')
