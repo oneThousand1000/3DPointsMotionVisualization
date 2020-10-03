@@ -40,6 +40,8 @@
 
 `BvhViewer`文件夹，可以将`.bvh`文件进行简单的可视化，用于调试
 
+下载来源：https://download.csdn.net/detail/dxth06/3508439
+
 ![2](./images/2.png)
 
 ## 模型和动作示例：
