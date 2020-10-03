@@ -32,6 +32,8 @@
 'RightHand': 16,
 'LeftWristEndSite': 17,
 'RightWristEndSite': 18,
+'LeftToe': 19,
+'RightToe': 20
 ```
 
 修改`./3Dpoints2BVH/run.py`中的输入输出路径并运行，就能得到`.bvh`文件
