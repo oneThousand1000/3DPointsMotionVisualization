@@ -44,6 +44,8 @@
 
 ![2](./images/2.png)
 
+你也可以使用https://github.com/mrzli/bvhviewer  中的bvh查看器
+
 ## 模型和动作示例：
 
 `model`文件夹，存储pmx模型和`.bvh`文件示例
