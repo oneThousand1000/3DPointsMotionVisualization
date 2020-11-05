@@ -1,16 +1,22 @@
 # Readme
 
-这是一个将人体骨骼序列转化为bvh并进行可视化的工具
+We provide a tool that converts 3D bone points sequence into a .bvh file that is used for visualization.
 
-## 人体骨骼序列转化为bvh动作文件
+We also collect some BVH visualization tools.
 
-`3Dpoints2BVH`文件夹
+##  convert 3D bone points sequence into .bvh file
 
-转化方法参考了：https://github.com/HW140701/VideoTo3dPoseAndBvh
+In `./3Dpoints2BVH`
 
-请注意，如果需要直接使用我的代码，请将骨骼存储格式改为大小为[length,19,3]的三维数组，其中，length为骨骼序列长度
+**reference:**
 
-而每个动作包含19个骨骼点三维坐标，顺序如下：
+https://github.com/HW140701/VideoTo3dPoseAndBvh
+
+**3D bone points sequence data format:**
+
+the sequence of the points should be store in an array of shapes [length,19,3], where the first dimension is the length of the sequence.
+
+The 19 3D point coordinates are bounded with different bone points in the following order:
 
 ```
 'Hips': 0,
@@ -36,24 +42,35 @@
 'RightToe': 20
 ```
 
-修改`./3Dpoints2BVH/run.py`中的输入输出路径并运行，就能得到`.bvh`文件
 
-## 简易的.bvh文件查看器：
 
-`BvhViewer`文件夹，可以将`.bvh`文件进行简单的可视化，用于调试
+**run:**
 
-下载来源：https://download.csdn.net/detail/dxth06/3508439
+```
+cd 3Dpoints2BVH
+python run.py --input_json ./input.json --output_bvh ./test.bvh
+```
+
+## A simple .bvh  file viewer：
+
+In `./BvhViewer`，we collect a bvhviewer that simply visualizes .bvh file, we use this tool for debugging.
+
+**reference：**
+
+https://download.csdn.net/detail/dxth06/3508439
 
 ![2](./images/2.png)
 
-你也可以使用https://github.com/mrzli/bvhviewer  中的bvh查看器
 
-## 模型和动作示例：
 
-`model`文件夹，存储pmx模型和`.bvh`文件示例
+the bvhviewer in https://github.com/mrzli/bvhviewer  can do the same work.
 
-## 导入模型和动作的可视化工具：
+## 3D Model and bvh sample：
 
-`liveAnimation`文件夹，需要按照说明进行安装，然后才能运行`liveAnimation.exe`进行可视化，首先导入pmx模型，随后导入`.bvh`动作文件
+In `./model`    we provide a  pmx 3D model  and `.bvh` file sample
+
+## visualization tool
+
+In `./liveAnimation`  , install the application by instruction，then run `liveAnimation.exe`，firstly, load the pmx model , then load `.bvh motion file, then enjoy it! 
 
 ![1](./images/1.png)
