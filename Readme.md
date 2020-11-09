@@ -14,9 +14,9 @@ https://github.com/HW140701/VideoTo3dPoseAndBvh
 
 **3D bone points sequence data format:**
 
-the sequence of the points should be store in an array of shapes [length,19,3], where the first dimension is the length of the sequence.
+the sequence of the points should be store in an array of shapes [length,21,3], where the first dimension is the length of the sequence.
 
-The 19 3D point coordinates are bounded with different bone points in the following order:
+The 21 3D point coordinates are bounded with different bone points in the following order,  you can write a simple script that works on your data (in `./3Dpoints2BVH/run.py`, we write a  function  `getStandardFrames`  to convert our sample data into the standard format):
 
 ```
 'Hips': 0,
@@ -41,6 +41,10 @@ The 19 3D point coordinates are bounded with different bone points in the follow
 'LeftToe': 19,
 'RightToe': 20
 ```
+
+
+
+We also provide a sample 3D points .json file `Besame_Mucho.json` and the corresponding .bvh file `test.bvh` in  `./3Dpoints2BVH`
 
 
 
@@ -71,6 +75,6 @@ In `./model`    we provide a  pmx 3D model  and `.bvh` file sample
 
 ## visualization tool
 
-In `./liveAnimation`  , install the application by instruction，then run `liveAnimation.exe`，firstly, load the pmx model , then load `.bvh motion file, then enjoy it! 
+In `./liveAnimation`  , install the application by instruction，then run `liveAnimation.exe`，firstly, load the pmx model , then load `.bvh motion file, then enjoy it!  :)
 
 ![1](./images/1.png)
