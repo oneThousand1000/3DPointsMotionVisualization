@@ -78,3 +78,9 @@ In `./model`    we provide a  pmx 3D model  and `.bvh` file sample
 In `./liveAnimation`  , install the application by instruction，then run `liveAnimation.exe`，firstly, load the pmx model , then load `.bvh motion file, then enjoy it!  :)
 
 ![1](./images/1.png)
+
+
+
+## Future work
+
+ We find that the movement of head is still not normal in some cases, especially when the model has drastic rotation, we will solve this problem later. 
