@@ -83,4 +83,5 @@ In `./liveAnimation,`  install the application by instruction，then run `liveAn
 
 ## Future work
 
- We find that the movement of head is still not normal in some cases, especially when the model has drastic rotation, we will solve this problem later. 
+We find that the movement of the head is still not normal in some cases, especially when the model has drastic rotation. We will solve this problem later.
+
