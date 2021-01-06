@@ -1,10 +1,10 @@
 # Readme
 
-We provide a tool that converts 3D bone points sequence into a .bvh file that is used for visualization.
+We provide a tool that converts the 3D bone points sequence into a .bvh file used for visualization.
 
 We also collect some BVH visualization tools.
 
-##  convert 3D bone points sequence into .bvh file
+##  convert the 3D bone points sequence into .bvh file
 
 In `./3Dpoints2BVH`
 
@@ -14,9 +14,9 @@ https://github.com/HW140701/VideoTo3dPoseAndBvh
 
 **3D bone points sequence data format:**
 
-the sequence of the points should be store in an array of shapes [length,21,3], where the first dimension is the length of the sequence.
+The sequence of the points should be store in an array of shapes [length,21,3], where the first dimension is the length of the sequence.
 
-The 21 3D point coordinates are bounded with different bone points in the following order,  you can write a simple script that works on your data (in `./3Dpoints2BVH/run.py`, we write a  function  `getStandardFrames`  to convert our sample data into the standard format):
+The 21 3D point coordinates are bounded with different bone points in the following order, and you can write a simple script that works on your data (in `./3Dpoints2BVH/run.py`, we write a  function  `getStandardFrames`  to convert our sample data into the standard format):
 
 ```
 'Hips': 0,
@@ -75,7 +75,7 @@ In `./model`    we provide a  pmx 3D model  and `.bvh` file sample
 
 ## visualization tool
 
-In `./liveAnimation`  , install the application by instruction，then run `liveAnimation.exe`，firstly, load the pmx model , then load `.bvh motion file, then enjoy it!  :)
+In `./liveAnimation,`  install the application by instruction，then run `liveAnimation.exe`，firstly, load the pmx model, then load `.bvh motion file, then enjoy it!  :)
 
 ![1](./images/1.png)
 
