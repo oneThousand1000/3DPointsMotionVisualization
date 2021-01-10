@@ -1,3 +1,8 @@
+
+'''
+https://github.com/HW140701/VideoTo3dPoseAndBvh
+'''
+
 """
 ! left handed coordinate, z-up, y-forward
 ! left to right rotation matrix multiply: v'=vR
