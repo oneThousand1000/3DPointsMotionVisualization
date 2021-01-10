@@ -1,6 +1,9 @@
 import os
 from pathlib import Path
 
+'''
+https://github.com/HW140701/VideoTo3dPoseAndBvh
+'''
 
 class BvhNode(object):
     def __init__(
