@@ -3,6 +3,9 @@ import bvh_helper_SmartBody
 
 import numpy as np
 
+'''
+https://github.com/HW140701/VideoTo3dPoseAndBvh
+'''
 
 class SmartBodySkeleton(object):
 
